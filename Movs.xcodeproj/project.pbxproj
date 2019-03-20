@@ -18,6 +18,7 @@
 		639E2F21223ECA2300C69E3F /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639E2F20223ECA2300C69E3F /* Moya.framework */; };
 		639E2F23223ECA9100C69E3F /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639E2F22223ECA9100C69E3F /* RxSwift.framework */; };
 		63EE3AC6223FFC4900C9D882 /* TheMoviedbAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE3AC5223FFC4900C9D882 /* TheMoviedbAPI.swift */; };
+		63EE3AC822400FC000C9D882 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE3AC722400FC000C9D882 /* HomeViewModel.swift */; };
 		77D8E19D9A9461868E29E03C /* Pods_Movs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC248A5B3A7F233BF8C20F29 /* Pods_Movs.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		639E2F20223ECA2300C69E3F /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = Carthage/Build/iOS/Moya.framework; sourceTree = SOURCE_ROOT; };
 		639E2F22223ECA9100C69E3F /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = SOURCE_ROOT; };
 		63EE3AC5223FFC4900C9D882 /* TheMoviedbAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMoviedbAPI.swift; sourceTree = "<group>"; };
+		63EE3AC722400FC000C9D882 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		AC248A5B3A7F233BF8C20F29 /* Pods_Movs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAC1FD3F99B6F179D6B9B349 /* Pods-Movs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Movs/Pods-Movs.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -214,6 +216,7 @@
 		638C9B11223AF3BC006D5D9C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				63EE3AC722400FC000C9D882 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				638C9B16223AFA34006D5D9C /* FirstViewController.swift in Sources */,
 				638C9B14223AFA2B006D5D9C /* SecondViewController.swift in Sources */,
 				638C9ADB223AECDE006D5D9C /* AppDelegate.swift in Sources */,
+				63EE3AC822400FC000C9D882 /* HomeViewModel.swift in Sources */,
 				63EE3AC6223FFC4900C9D882 /* TheMoviedbAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

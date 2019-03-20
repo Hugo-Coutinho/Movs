@@ -10,9 +10,12 @@ import UIKit
 
 class FirstViewController: UIViewController {
 
+    private var viewModel: HomeViewModel = HomeViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        viewModel.loadTVShows(page: 1)
     }
 
 
