@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63586CD42242F8DC00884EC8 /* TvModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63586CD32242F8DC00884EC8 /* TvModel.swift */; };
+		63586CD6224303B700884EC8 /* TvService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63586CD5224303B700884EC8 /* TvService.swift */; };
 		638C9ADB223AECDE006D5D9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638C9ADA223AECDE006D5D9C /* AppDelegate.swift */; };
 		638C9AE2223AECDE006D5D9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 638C9AE0223AECDE006D5D9C /* Main.storyboard */; };
 		638C9AE7223AECE0006D5D9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 638C9AE5223AECE0006D5D9C /* LaunchScreen.storyboard */; };
@@ -17,6 +19,7 @@
 		638C9B1D223AFF04006D5D9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 638C9B1C223AFF04006D5D9C /* Assets.xcassets */; };
 		639E2F21223ECA2300C69E3F /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639E2F20223ECA2300C69E3F /* Moya.framework */; };
 		639E2F23223ECA9100C69E3F /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639E2F22223ECA9100C69E3F /* RxSwift.framework */; };
+		63C867152247C72E00E3C280 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C867142247C72E00E3C280 /* CollectionViewCell.swift */; };
 		63EE3AC6223FFC4900C9D882 /* TheMoviedbAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE3AC5223FFC4900C9D882 /* TheMoviedbAPI.swift */; };
 		63EE3AC822400FC000C9D882 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE3AC722400FC000C9D882 /* HomeViewModel.swift */; };
 		77D8E19D9A9461868E29E03C /* Pods_Movs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC248A5B3A7F233BF8C20F29 /* Pods_Movs.framework */; };
@@ -41,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		0307B32735E6256514DAFC70 /* Pods-Movs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Movs/Pods-Movs.debug.xcconfig"; sourceTree = "<group>"; };
+		63586CD32242F8DC00884EC8 /* TvModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvModel.swift; sourceTree = "<group>"; };
+		63586CD5224303B700884EC8 /* TvService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvService.swift; sourceTree = "<group>"; };
 		638C9AD7223AECDE006D5D9C /* Movs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		638C9ADA223AECDE006D5D9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		638C9AE1223AECDE006D5D9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -57,6 +62,7 @@
 		638C9B1C223AFF04006D5D9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		639E2F20223ECA2300C69E3F /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = Carthage/Build/iOS/Moya.framework; sourceTree = SOURCE_ROOT; };
 		639E2F22223ECA9100C69E3F /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = SOURCE_ROOT; };
+		63C867142247C72E00E3C280 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		63EE3AC5223FFC4900C9D882 /* TheMoviedbAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMoviedbAPI.swift; sourceTree = "<group>"; };
 		63EE3AC722400FC000C9D882 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		AC248A5B3A7F233BF8C20F29 /* Pods_Movs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				63EE3AC5223FFC4900C9D882 /* TheMoviedbAPI.swift */,
+				63586CD5224303B700884EC8 /* TvService.swift */,
 			);
 			path = ApiService;
 			sourceTree = "<group>";
@@ -199,6 +206,7 @@
 		638C9B0F223AF348006D5D9C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				63586CD32242F8DC00884EC8 /* TvModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -249,8 +257,17 @@
 		638C9B19223AFABB006D5D9C /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				63C867112247C6BA00E3C280 /* firstVC */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		63C867112247C6BA00E3C280 /* firstVC */ = {
+			isa = PBXGroup;
+			children = (
+				63C867142247C72E00E3C280 /* CollectionViewCell.swift */,
+			);
+			path = firstVC;
 			sourceTree = "<group>";
 		};
 		D9185FB532F059B5C3849C64 /* Pods */ = {
@@ -451,10 +468,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				638C9B16223AFA34006D5D9C /* FirstViewController.swift in Sources */,
+				63586CD6224303B700884EC8 /* TvService.swift in Sources */,
+				63C867152247C72E00E3C280 /* CollectionViewCell.swift in Sources */,
 				638C9B14223AFA2B006D5D9C /* SecondViewController.swift in Sources */,
 				638C9ADB223AECDE006D5D9C /* AppDelegate.swift in Sources */,
 				63EE3AC822400FC000C9D882 /* HomeViewModel.swift in Sources */,
 				63EE3AC6223FFC4900C9D882 /* TheMoviedbAPI.swift in Sources */,
+				63586CD42242F8DC00884EC8 /* TvModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
