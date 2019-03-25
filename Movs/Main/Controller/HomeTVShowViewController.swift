@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class HomeTVShowViewController: UIViewController {
     
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -26,7 +26,7 @@ class FirstViewController: UIViewController {
 }
 
 
-extension FirstViewController: UICollectionViewDataSource {
+extension HomeTVShowViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 30
     }

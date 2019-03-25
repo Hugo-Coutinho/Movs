@@ -14,8 +14,8 @@
 		638C9AE7223AECE0006D5D9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 638C9AE5223AECE0006D5D9C /* LaunchScreen.storyboard */; };
 		638C9AF2223AECE1006D5D9C /* MovsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638C9AF1223AECE1006D5D9C /* MovsTests.swift */; };
 		638C9AFD223AECE1006D5D9C /* MovsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638C9AFC223AECE1006D5D9C /* MovsUITests.swift */; };
-		638C9B14223AFA2B006D5D9C /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638C9B13223AFA2B006D5D9C /* SecondViewController.swift */; };
-		638C9B16223AFA34006D5D9C /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638C9B15223AFA34006D5D9C /* FirstViewController.swift */; };
+		638C9B14223AFA2B006D5D9C /* FavoriteTVShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638C9B13223AFA2B006D5D9C /* FavoriteTVShowViewController.swift */; };
+		638C9B16223AFA34006D5D9C /* HomeTVShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638C9B15223AFA34006D5D9C /* HomeTVShowViewController.swift */; };
 		638C9B1D223AFF04006D5D9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 638C9B1C223AFF04006D5D9C /* Assets.xcassets */; };
 		639E2F21223ECA2300C69E3F /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639E2F20223ECA2300C69E3F /* Moya.framework */; };
 		639E2F23223ECA9100C69E3F /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639E2F22223ECA9100C69E3F /* RxSwift.framework */; };
@@ -57,8 +57,8 @@
 		638C9AF8223AECE1006D5D9C /* MovsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		638C9AFC223AECE1006D5D9C /* MovsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovsUITests.swift; sourceTree = "<group>"; };
 		638C9AFE223AECE1006D5D9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		638C9B13223AFA2B006D5D9C /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		638C9B15223AFA34006D5D9C /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		638C9B13223AFA2B006D5D9C /* FavoriteTVShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTVShowViewController.swift; sourceTree = "<group>"; };
+		638C9B15223AFA34006D5D9C /* HomeTVShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTVShowViewController.swift; sourceTree = "<group>"; };
 		638C9B1C223AFF04006D5D9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		639E2F20223ECA2300C69E3F /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = Carthage/Build/iOS/Moya.framework; sourceTree = SOURCE_ROOT; };
 		639E2F22223ECA9100C69E3F /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = SOURCE_ROOT; };
@@ -232,8 +232,8 @@
 		638C9B12223AF3FD006D5D9C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				638C9B15223AFA34006D5D9C /* FirstViewController.swift */,
-				638C9B13223AFA2B006D5D9C /* SecondViewController.swift */,
+				638C9B15223AFA34006D5D9C /* HomeTVShowViewController.swift */,
+				638C9B13223AFA2B006D5D9C /* FavoriteTVShowViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -257,17 +257,17 @@
 		638C9B19223AFABB006D5D9C /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				63C867112247C6BA00E3C280 /* firstVC */,
+				63C867112247C6BA00E3C280 /* HomeTVShow */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		63C867112247C6BA00E3C280 /* firstVC */ = {
+		63C867112247C6BA00E3C280 /* HomeTVShow */ = {
 			isa = PBXGroup;
 			children = (
 				63C8671622481F9200E3C280 /* TvShowCell.swift */,
 			);
-			path = firstVC;
+			path = HomeTVShow;
 			sourceTree = "<group>";
 		};
 		D9185FB532F059B5C3849C64 /* Pods */ = {
@@ -467,9 +467,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				638C9B16223AFA34006D5D9C /* FirstViewController.swift in Sources */,
+				638C9B16223AFA34006D5D9C /* HomeTVShowViewController.swift in Sources */,
 				63586CD6224303B700884EC8 /* TvService.swift in Sources */,
-				638C9B14223AFA2B006D5D9C /* SecondViewController.swift in Sources */,
+				638C9B14223AFA2B006D5D9C /* FavoriteTVShowViewController.swift in Sources */,
 				638C9ADB223AECDE006D5D9C /* AppDelegate.swift in Sources */,
 				63EE3AC822400FC000C9D882 /* HomeViewModel.swift in Sources */,
 				63EE3AC6223FFC4900C9D882 /* TheMoviedbAPI.swift in Sources */,
