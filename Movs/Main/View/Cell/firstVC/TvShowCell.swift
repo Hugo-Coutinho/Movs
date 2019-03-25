@@ -1,5 +1,5 @@
 //
-//  CollectionViewCell.swift
+//  TvShowCell.swift
 //  Movs
 //
 //  Created by BRQ on 24/03/19.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-class CollectionViewCell: UICollectionViewCell {
+class TvShowCell: UICollectionViewCell {
     
 }
