@@ -7,31 +7,65 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class HomeTVShowViewController: UIViewController {
+final class HomeTVShowViewController: UIViewController {
     
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    private var viewModel: HomeViewModel = HomeViewModel()
+    private var vm: HomeViewModel = HomeViewModel()
+    private let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        let layout: UICollectionViewFlowLayout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-//        layout.sectionInset = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
-//        layout.minimumInteritemSpacing = 4
-        layout.itemSize = CGSize(width: view.frame.width*0.4, height: self.collectionView.frame.height/3)
+        configureTableViewDelegate()
+        configure()
     }
 }
 
-
-extension HomeTVShowViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+extension HomeTVShowViewController {
+    private func configure() {
+        bindCellItems()
+        collectionViewRegister()
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: "tvShowCell", for: indexPath) as! TvShowCell
+    private func configureTableViewDelegate() {
+        collectionView
+            .rx
+            .setDelegate(self)
+            .disposed(by: bag)
+    }
+    
+    private func  bindCellItems() {
+        vm.items
+            .bind(to: collectionView.rx.items(cellIdentifier: "TvShowCell", cellType: TvShowCell.self)) { _, element, cell in
+                if cell.labelShowName != nil {
+                    cell.labelShowName.text = element.name
+                }
+            }
+            .disposed(by: bag)
+    }
+    
+    private func collectionViewRegister() {
+        collectionView.register(UINib(nibName: "TvShowCell", bundle: nil), forCellWithReuseIdentifier: "TvShowCell")
     }
 }
+
+extension HomeTVShowViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 10.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10.0
+    }
+    
+    func  collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width*0.4, height: self.collectionView.frame.height/3)
+    }
+    
+}
+

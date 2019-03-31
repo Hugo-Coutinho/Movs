@@ -7,9 +7,33 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
-class HomeViewModel {
+final class HomeViewModel {
     
-    private var service = TvService()
+    var items = BehaviorRelay(value: [Result]())
+    private let bag = DisposeBag()
+    private let service = TvService()
     
+    
+    init() {
+        self.fetchTvShows()
+    }
+    
+    
+}
+
+// MARK: - HELPER FUNCTIONS
+extension HomeViewModel {
+    private func fetchTvShows() {
+        self.service.fetchTVShows().subscribe {
+            switch $0 {
+            case .success(let element):
+                self.items.accept(element.results)
+            case .error(let error):
+                print(error)
+            }
+            }.disposed(by: self.bag)
+    }
 }

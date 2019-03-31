@@ -3,7 +3,10 @@ platform :ios, '10.0'
 use_frameworks!
 
 target 'Movs' do
-    pod 'Moya/RxSwift', '~> 12.0'
+  pod 'Moya/RxSwift', '~> 12.0'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'RxDataSources', '~> 3.0'
     
 end
 

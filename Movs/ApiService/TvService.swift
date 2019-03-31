@@ -15,21 +15,9 @@ class TvService {
     
     private var provider = MoyaProvider<TheMovidedbAPI>()
     
-    func loadTVShows(page: Int) {
-        provider.rx.request(.getPopular()).subscribe { event in
-            switch event {
-            case .success(let response):
-                do {
-                    let filteredResponse = try response.filterSuccessfulStatusAndRedirectCodes()
-                    let mapJson = try filteredResponse.map(TvModel.self)
-                    print(mapJson)
-                    
-                } catch {
-                    print(error)
-                }
-            case .error(let error):
-                print(error)
-            }
-        }
+    func fetchTVShows() -> PrimitiveSequence<SingleTrait, TvModel> {
+        return self.provider.rx.request(.getPopular())
+            .filterSuccessfulStatusCodes()
+            .map(TvModel.self)
     }
 }
