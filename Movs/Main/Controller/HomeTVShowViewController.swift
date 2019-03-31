@@ -16,7 +16,6 @@ final class HomeTVShowViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     private var vm: HomeViewModel = HomeViewModel()
-    private let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,17 +34,17 @@ extension HomeTVShowViewController {
         collectionView
             .rx
             .setDelegate(self)
-            .disposed(by: bag)
+            .disposed(by: self.vm.bag)
     }
     
     private func  bindCellItems() {
         vm.items
             .bind(to: collectionView.rx.items(cellIdentifier: "TvShowCell", cellType: TvShowCell.self)) { _, element, cell in
                 if cell.labelShowName != nil {
-                    cell.labelShowName.text = element.name
+                    cell.labelShowName.text = element.titleMovie
                 }
             }
-            .disposed(by: bag)
+            .disposed(by: self.vm.bag)
     }
     
     private func collectionViewRegister() {

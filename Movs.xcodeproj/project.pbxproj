@@ -11,6 +11,7 @@
 		63586CD6224303B700884EC8 /* TvService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63586CD5224303B700884EC8 /* TvService.swift */; };
 		6359D26E22501B78004CCA3E /* TvShowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6359D26C22501B78004CCA3E /* TvShowCell.swift */; };
 		6359D26F22501B78004CCA3E /* TvShowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6359D26D22501B78004CCA3E /* TvShowCell.xib */; };
+		6359D2712250FB11004CCA3E /* TvViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6359D2702250FB11004CCA3E /* TvViewData.swift */; };
 		638C9ADB223AECDE006D5D9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638C9ADA223AECDE006D5D9C /* AppDelegate.swift */; };
 		638C9AE2223AECDE006D5D9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 638C9AE0223AECDE006D5D9C /* Main.storyboard */; };
 		638C9AE7223AECE0006D5D9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 638C9AE5223AECE0006D5D9C /* LaunchScreen.storyboard */; };
@@ -49,6 +50,7 @@
 		63586CD5224303B700884EC8 /* TvService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvService.swift; sourceTree = "<group>"; };
 		6359D26C22501B78004CCA3E /* TvShowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowCell.swift; sourceTree = "<group>"; };
 		6359D26D22501B78004CCA3E /* TvShowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TvShowCell.xib; sourceTree = "<group>"; };
+		6359D2702250FB11004CCA3E /* TvViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvViewData.swift; sourceTree = "<group>"; };
 		638C9AD7223AECDE006D5D9C /* Movs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		638C9ADA223AECDE006D5D9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		638C9AE1223AECDE006D5D9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				63586CD32242F8DC00884EC8 /* TvModel.swift */,
+				6359D2702250FB11004CCA3E /* TvViewData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Movs/Pods-Movs-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
@@ -436,6 +440,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
@@ -477,6 +482,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6359D2712250FB11004CCA3E /* TvViewData.swift in Sources */,
 				638C9B16223AFA34006D5D9C /* HomeTVShowViewController.swift in Sources */,
 				63586CD6224303B700884EC8 /* TvService.swift in Sources */,
 				638C9B14223AFA2B006D5D9C /* FavoriteTVShowViewController.swift in Sources */,

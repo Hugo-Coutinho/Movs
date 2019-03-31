@@ -15,9 +15,10 @@ class TvService {
     
     private var provider = MoyaProvider<TheMovidedbAPI>()
     
-    func fetchTVShows() -> PrimitiveSequence<SingleTrait, TvModel> {
+    func provideTVShows() -> PrimitiveSequence<SingleTrait, TvModel> {
         return self.provider.rx.request(.getPopular())
             .filterSuccessfulStatusCodes()
             .map(TvModel.self)
     }
 }
+
