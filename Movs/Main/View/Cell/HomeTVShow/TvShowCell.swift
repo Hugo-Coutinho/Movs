@@ -15,16 +15,30 @@ class TvShowCell: UICollectionViewCell {
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var labelShowName: UILabel!
     @IBOutlet weak var imageShow: UIImageView!
-    @IBOutlet weak var imageFavorite: UIImageView!
+    @IBOutlet weak var buttonFavorite: UIButton!
     
-    
+    private var viewData: TvViewDataElement?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     
+    
+    @IBAction func selectFavorite(_ sender: Any) {
+        if let isFavorite = self.viewData?.isFavorite,
+            isFavorite == false {
+            self.viewData?.isFavorite = true
+            self.buttonFavorite.setImage(Image(named: Constants.viewImages.favorite), for: .normal)
+        } else {
+            self.viewData?.isFavorite = false
+            self.buttonFavorite.setImage(Image(named: Constants.viewImages.notFavorite), for: .normal)
+        }
+        
+    }
+    
     func prepare(element: TvViewDataElement) {
+        self.viewData = element
         self.labelShowName.text = element.titleTvShow
         downloadImage(element.urlImage, element.titleTvShow, self.imageShow)
     }
