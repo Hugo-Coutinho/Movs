@@ -40,7 +40,7 @@ extension HomeTVShowViewController {
     
     private func  bindCellItems() {
         vm.items
-            .bind(to: collectionView.rx.items(cellIdentifier: "TvShowCell", cellType: TvShowCell.self)) { _, element, cell in
+            .bind(to: collectionView.rx.items(cellIdentifier: Constants.cellIdentifier.tvShowCell, cellType: TvShowCell.self)) { _, element, cell in
                 if cell.labelShowName != nil {
                     cell.prepare(element: element)
                 }
@@ -49,7 +49,7 @@ extension HomeTVShowViewController {
     }
     
     private func collectionViewRegister() {
-        collectionView.register(UINib(nibName: "TvShowCell", bundle: nil), forCellWithReuseIdentifier: "TvShowCell")
+        collectionView.register(UINib(nibName: Constants.cellIdentifier.tvShowCell, bundle: nil), forCellWithReuseIdentifier: Constants.cellIdentifier.tvShowCell)
     }
 }
 

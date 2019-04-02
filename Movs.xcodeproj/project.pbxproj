@@ -15,6 +15,7 @@
 		6359D27322524F2D004CCA3E /* GenreRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6359D27222524F2D004CCA3E /* GenreRouter.swift */; };
 		6359D27722525367004CCA3E /* GenreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6359D27622525367004CCA3E /* GenreService.swift */; };
 		6359D2792252541B004CCA3E /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6359D2782252541B004CCA3E /* Genre.swift */; };
+		6359D27B22531712004CCA3E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6359D27A22531712004CCA3E /* Constants.swift */; };
 		638C9ADB223AECDE006D5D9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638C9ADA223AECDE006D5D9C /* AppDelegate.swift */; };
 		638C9AE2223AECDE006D5D9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 638C9AE0223AECDE006D5D9C /* Main.storyboard */; };
 		638C9AE7223AECE0006D5D9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 638C9AE5223AECE0006D5D9C /* LaunchScreen.storyboard */; };
@@ -57,6 +58,7 @@
 		6359D27222524F2D004CCA3E /* GenreRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreRouter.swift; sourceTree = "<group>"; };
 		6359D27622525367004CCA3E /* GenreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreService.swift; sourceTree = "<group>"; };
 		6359D2782252541B004CCA3E /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		6359D27A22531712004CCA3E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Movs/Main/Model/Constants.swift; sourceTree = SOURCE_ROOT; };
 		638C9AD7223AECDE006D5D9C /* Movs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		638C9ADA223AECDE006D5D9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		638C9AE1223AECDE006D5D9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 		638C9B0E223AF2D9006D5D9C /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				6359D27A22531712004CCA3E /* Constants.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				63586CD6224303B700884EC8 /* TvService.swift in Sources */,
 				638C9B14223AFA2B006D5D9C /* FavoriteTVShowViewController.swift in Sources */,
 				638C9ADB223AECDE006D5D9C /* AppDelegate.swift in Sources */,
+				6359D27B22531712004CCA3E /* Constants.swift in Sources */,
 				63EE3AC822400FC000C9D882 /* HomeViewModel.swift in Sources */,
 				6359D27722525367004CCA3E /* GenreService.swift in Sources */,
 				63EE3AC6223FFC4900C9D882 /* TmdbRouter.swift in Sources */,

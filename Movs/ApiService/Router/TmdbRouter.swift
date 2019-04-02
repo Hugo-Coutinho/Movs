@@ -10,19 +10,19 @@ import Foundation
 import Moya
 
 struct TmdbAPI {
-    static let token = "8294d9700f85e20265086a49235ffbed"
+    static let token = Constants.token
 }
 // URL:   https://api.themoviedb.org/3/tv/popular?api_key=8294d9700f85e20265086a49235ffbed
 enum TmdbRouter: TargetType {
     
     case getPopular()
     
-    var baseURL: URL { return URL(string: "https://api.themoviedb.org/3/tv/")! }
+    var baseURL: URL { return URL(string: Constants.Router.tvBaseURL)! }
     
     var path: String {
         switch self {
         case .getPopular:
-            return "popular"
+            return Constants.Router.getPopularPath
         }
     }
 
@@ -49,7 +49,7 @@ enum TmdbRouter: TargetType {
     var task: Task {
         switch self {
         case .getPopular():
-            return .requestParameters(parameters: ["api_key": TmdbAPI.token], encoding: URLEncoding.default)
+            return .requestParameters(parameters: [Constants.Router.api_key: TmdbAPI.token], encoding: URLEncoding.default)
         }
     }
     

@@ -16,12 +16,12 @@ enum GenreRouter: TargetType {
     
     case getGenre()
     
-    var baseURL: URL { return URL(string: "https://api.themoviedb.org/3/genre/tv/")! }
+    var baseURL: URL { return URL(string: Constants.Router.genreBaseUrl)! }
     
     var path: String {
         switch self {
         case .getGenre():
-            return "list"
+            return Constants.Router.getGenrePath
         }
     }
     
@@ -48,7 +48,7 @@ enum GenreRouter: TargetType {
     var task: Task {
         switch self {
         case .getGenre():
-            return .requestParameters(parameters: ["api_key": TmdbAPI.token], encoding: URLEncoding.default)
+            return .requestParameters(parameters: [Constants.Router.api_key: TmdbAPI.token], encoding: URLEncoding.default)
         }
     }
 }
