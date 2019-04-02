@@ -1,34 +1,33 @@
 //
-//  TheMoviedbAPI.swift
+//  GenreRouter.swift
 //  Movs
 //
-//  Created by BRQ on 18/03/19.
+//  Created by BRQ on 01/04/19.
 //  Copyright © 2019 BRQ. All rights reserved.
 //
 
 import Foundation
 import Moya
 
-struct TmdbAPI {
-    static let token = "8294d9700f85e20265086a49235ffbed"
-}
-// URL:   https://api.themoviedb.org/3/tv/popular?api_key=8294d9700f85e20265086a49235ffbed
-enum TheMovidedbAPI: TargetType {
+
+// https://api.themoviedb.org/3/genre/tv/list?api_key=8294d9700f85e20265086a49235ffbed
+
+enum GenreRouter: TargetType {
     
-    case getPopular()
+    case getGenre()
     
-    var baseURL: URL { return URL(string: "https://api.themoviedb.org/3/tv/")! }
+    var baseURL: URL { return URL(string: "https://api.themoviedb.org/3/genre/tv/")! }
     
     var path: String {
         switch self {
-        case .getPopular:
-            return "popular"
+        case .getGenre():
+            return "list"
         }
     }
-
+    
     var method: Moya.Method {
         switch self {
-        case .getPopular():
+        case .getGenre():
             return .get
         }
     }
@@ -37,9 +36,9 @@ enum TheMovidedbAPI: TargetType {
         return [:]
     }
     
-      var parameterEncoding: ParameterEncoding {
+    var parameterEncoding: ParameterEncoding {
         switch self {
-        case .getPopular():
+        case .getGenre():
             return URLEncoding.queryString
         }
     }
@@ -48,9 +47,8 @@ enum TheMovidedbAPI: TargetType {
     
     var task: Task {
         switch self {
-        case .getPopular():
+        case .getGenre():
             return .requestParameters(parameters: ["api_key": TmdbAPI.token], encoding: URLEncoding.default)
         }
     }
-    
 }

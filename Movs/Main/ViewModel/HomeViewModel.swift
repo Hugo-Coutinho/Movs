@@ -13,8 +13,8 @@ import RxCocoa
 final class HomeViewModel {
     
     var items = BehaviorRelay(value: TvViewDataModel())
-    private let service = TvService()
-    private var viewDataModel = TvViewDataModel()
+    private let tvService = TvService()
+    private let genresService = GenreService()
     let bag = DisposeBag()
     
     init() {
@@ -25,12 +25,23 @@ final class HomeViewModel {
 
 // MARK: - SERVICE
 extension HomeViewModel {
-  private func fetchTvShows() {
-        self.service.provideTVShows().subscribe {
+    private func fetchTvShows() {
+        self.tvService.provideTVShows().subscribe {
             switch $0 {
             case .success(let element):
-                let viewDataModel = self.parseToViewData(results: element.results)
-                self.items.accept(viewDataModel)
+                self.acceptItems(results: element.results)
+            case .error(let error):
+                print(error)
+            }
+            }.disposed(by: self.bag)
+    }
+    
+    private func fetchGenres(tvShowModel: TvViewDataModel, genresIDS: [String: [Int]]) {
+        self.genresService.provideGenres().subscribe {
+            switch $0 {
+            case .success(let genresModel):
+                let tvShows = Genre.setGenresForEachTvShows(tvShows: tvShowModel, genres: genresModel, genreIDS: genresIDS)
+                self.items.accept(tvShows)
             case .error(let error):
                 print(error)
             }
@@ -42,23 +53,23 @@ extension HomeViewModel {
 // MARK: - HELPER FUNCTIONS
 extension HomeViewModel {
     
-    private func newInstanceViewDataElement(element: Result) -> TvViewDataElement? {
-        return TvViewDataElement(titleMovie: element.originalName,
-                                 releaseDate: element.firstAirDate,
-                                 description: element.overview,
-                                 isFavorite: false,
-                                 genres: [String]())
+    private func acceptItems(results: [Result]) {
+        self.parseToViewData(results: results)
     }
     
-    private func parseToViewData(results: [Result]) -> TvViewDataModel {
-        var model = TvViewDataModel()
-    
-            results.forEach { (result) in
-                if let element = newInstanceViewDataElement(element: result) {
-                    model.append(element)
+    private func parseToViewData(results: [Result]) {
+        var model: TvViewDataModel = TvViewDataModel()
+        var ids = [String: [Int]]()
+        
+        results.forEach { (result) in
+            ids[result.originalName] = [Int]()
+            ids[result.originalName]!.append(contentsOf: result.genreIDS)
+            
+            if let element = TvViewDataElement.newInstanceViewDataElement(element: result) {
+                model.append(element)
             }
         }
-        return model
+        self.fetchGenres(tvShowModel: model, genresIDS: ids)
     }
 }
 

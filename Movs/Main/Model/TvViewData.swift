@@ -8,21 +8,32 @@
 
 import Foundation
 
-typealias Genres = [String]
 typealias TvViewDataModel = [TvViewDataElement]
 
 class TvViewDataElement {
     
-    var titleMovie,releaseDate,description: String
+    var titleTvShow,releaseDate,urlImage,description: String
     var isFavorite: Bool
-    var genres: Genres
+    var genres: [String]?
     
-    init(titleMovie: String, releaseDate: String, description: String, isFavorite: Bool, genres: Genres) {
-        self.titleMovie = titleMovie
+    init(titleTvShow: String, releaseDate: String, description: String, urlImage:String, isFavorite: Bool, genres: [String]?) {
+        self.titleTvShow = titleTvShow
         self.releaseDate = releaseDate
+        self.urlImage = urlImage
         self.description = description
         self.isFavorite = isFavorite
+        if let genres = genres {
         self.genres = genres
+        }
+    }
+    
+    class func newInstanceViewDataElement(element: Result) -> TvViewDataElement? {
+        return TvViewDataElement(titleTvShow: element.originalName,
+                                 releaseDate: element.firstAirDate,
+                                 description: element.overview,
+                                 urlImage: "https://image.tmdb.org/t/p/w500\(element.posterPath)",
+            isFavorite: false,
+            genres: [String]())
     }
     
 }

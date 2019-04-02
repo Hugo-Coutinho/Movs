@@ -41,7 +41,7 @@ extension HomeTVShowViewController {
         vm.items
             .bind(to: collectionView.rx.items(cellIdentifier: "TvShowCell", cellType: TvShowCell.self)) { _, element, cell in
                 if cell.labelShowName != nil {
-                    cell.labelShowName.text = element.titleMovie
+                    cell.labelShowName.text = element.titleTvShow
                 }
             }
             .disposed(by: self.vm.bag)
