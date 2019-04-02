@@ -15,6 +15,8 @@ class TvShowCell: UICollectionViewCell {
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var labelShowName: UILabel!
     @IBOutlet weak var imageShow: UIImageView!
+    @IBOutlet weak var imageFavorite: UIImageView!
+    
     
     
     override func awakeFromNib() {

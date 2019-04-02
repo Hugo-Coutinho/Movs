@@ -19,8 +19,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="160" height="219"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="URv-YH-RPw">
-                        <rect key="frame" x="0.0" y="0.0" width="160" height="165"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="URv-YH-RPw">
+                        <rect key="frame" x="0.0" y="1" width="160" height="165"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="165" id="DTt-rL-Ypv"/>
                         </constraints>
@@ -70,7 +70,8 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
-                <outlet property="imageShow" destination="c6R-ri-bAW" id="2aU-Oy-6m7"/>
+                <outlet property="imageFavorite" destination="c6R-ri-bAW" id="wKb-Mq-pAG"/>
+                <outlet property="imageShow" destination="URv-YH-RPw" id="WDl-FH-4To"/>
                 <outlet property="labelShowName" destination="dmi-DS-o3S" id="13h-BA-ObM"/>
                 <outlet property="stackView" destination="Hhp-a4-WY7" id="QGH-QV-Ftj"/>
             </connections>

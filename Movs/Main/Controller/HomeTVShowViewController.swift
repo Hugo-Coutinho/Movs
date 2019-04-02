@@ -24,6 +24,7 @@ final class HomeTVShowViewController: UIViewController {
     }
 }
 
+// MARK: - BIND RX COLLECTION VIEW
 extension HomeTVShowViewController {
     private func configure() {
         bindCellItems()
@@ -41,7 +42,7 @@ extension HomeTVShowViewController {
         vm.items
             .bind(to: collectionView.rx.items(cellIdentifier: "TvShowCell", cellType: TvShowCell.self)) { _, element, cell in
                 if cell.labelShowName != nil {
-                    cell.labelShowName.text = element.titleTvShow
+                    cell.prepare(element: element)
                 }
             }
             .disposed(by: self.vm.bag)
@@ -52,6 +53,7 @@ extension HomeTVShowViewController {
     }
 }
 
+// MARK: - COLLECTION VIEW DELEGATE FLOW
 extension HomeTVShowViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -63,7 +65,7 @@ extension HomeTVShowViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func  collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width*0.4, height: self.collectionView.frame.height/3)
+        return CGSize(width: view.frame.width*0.4, height: view.frame.height/3)
     }
     
 }
