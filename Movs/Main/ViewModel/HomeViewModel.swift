@@ -27,6 +27,7 @@ final class HomeViewModel {
     
     private var states: StatesScreen = StatesScreen.loading
     var items = BehaviorRelay(value: TvViewDataModel())
+    var allItems = TvViewDataModel()
     private let tvService = TvService()
     private let genresService = GenreService()
     private var delegate: HomeViewModelDelegate?
@@ -61,6 +62,7 @@ extension HomeViewModel {
             switch $0 {
             case .success(let genresModel):
                 let tvShows = Genre.setGenresForEachTvShows(tvShows: tvShowModel, genres: genresModel, genreIDS: genresIDS)
+                self.allItems = tvShows
                 self.items.accept(tvShows)
             case .error(let error):
                 print(error)

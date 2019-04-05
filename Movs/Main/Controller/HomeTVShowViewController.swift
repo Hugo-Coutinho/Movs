@@ -27,6 +27,10 @@ final class HomeTVShowViewController: UIViewController {
         configureTableViewDelegate()
         configure()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setupNavBar()
+    }
 }
 
 // MARK: - BIND RX COLLECTION VIEW
@@ -75,6 +79,7 @@ extension HomeTVShowViewController: UICollectionViewDelegateFlowLayout {
     
 }
 
+// MARK: - VIEWMODEL DELEGATE
 extension HomeTVShowViewController: HomeViewModelDelegate {
     func success() {
         UIView.animate(withDuration: 0.2) {
@@ -105,7 +110,33 @@ extension HomeTVShowViewController: HomeViewModelDelegate {
             self.labelLoadingMessage.text = Constants.LottieAnimation.Message.errorMessage
         }
     }
-    
-    
 }
 
+// MARK: - NAVBAR HELPER
+extension HomeTVShowViewController {
+    private func setupNavBar() {
+        self.navigationItem.largeTitleDisplayMode = .never
+        setupSearchBar()
+        
+    }
+    
+    private func setupSearchBar() {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.delegate = self
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = true
+    }
+}
+
+// MARK: - SEARCHBAR DELEGATE
+extension HomeTVShowViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+        self.vm.items.accept(self.vm.allItems)
+        } else {
+            self.vm.items.accept(self.vm.allItems.filter({ $0.titleTvShow.lowercased().contains(searchText.lowercased()) }))
+        }
+        
+    }
+}

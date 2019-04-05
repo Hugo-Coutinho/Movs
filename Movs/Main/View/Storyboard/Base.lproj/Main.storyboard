@@ -15,22 +15,22 @@
         </array>
     </customFonts>
     <scenes>
-        <!--TV  SHOWS-->
+        <!--Tv Shows-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="HomeTVShowViewController" customModule="Movs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ARH-tr-2hn">
-                                <rect key="frame" x="42" y="154" width="291" height="359"/>
+                                <rect key="frame" x="42" y="90" width="291" height="423"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OS6-Uy-kcf" customClass="LOTAnimationView">
-                                        <rect key="frame" x="5" y="8" width="278" height="275"/>
+                                        <rect key="frame" x="5" y="8" width="278" height="339"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZK-s8-0SV">
-                                        <rect key="frame" x="125.5" y="291" width="37" height="17.5"/>
+                                        <rect key="frame" x="125.5" y="355" width="37" height="17.5"/>
                                         <fontDescription key="fontDescription" name="Lato-Black" family="Lato" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -46,7 +46,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3D9-y5-u9k">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="4" id="idw-LT-KHr">
                                     <size key="itemSize" width="160" height="219"/>
@@ -70,7 +70,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <navigationItem key="navigationItem" title="TV  SHOWS" largeTitleDisplayMode="always" id="jiX-1b-51J"/>
+                    <navigationItem key="navigationItem" title="Tv Shows" leftItemsSupplementBackButton="YES" id="jiX-1b-51J"/>
                     <connections>
                         <outlet property="collectionView" destination="3D9-y5-u9k" id="1HL-KZ-yty"/>
                         <outlet property="labelLoadingMessage" destination="xZK-s8-0SV" id="fL1-79-hWO"/>
@@ -136,13 +136,13 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Movies-->
+        <!--Shows-->
         <scene sceneID="sfQ-RA-ncP">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7vZ-fe-sNh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Movies" image="list_icon" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Shows" image="list_icon" id="acW-dT-cKf"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ppK-F8-MGK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="ppK-F8-MGK">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="0.98431372549019602" blue="0.0" alpha="0.67707416373239437" colorSpace="custom" customColorSpace="sRGB"/>
@@ -156,11 +156,11 @@
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
         </scene>
-        <!--Second-->
+        <!--Favorites-->
         <scene sceneID="zKp-CU-mQS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dMK-6U-jxC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Second" image="favorite_empty_icon" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="favorite_empty_icon" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZfF-7U-4Zx">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

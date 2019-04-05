@@ -27,6 +27,7 @@ enum Constants {
     enum viewImage {
         static let favorite: String = "favorite_full_icon"
         static let notFavorite: String = "favorite_gray_icon"
+        static let defaultImage: String = "Splash"
     }
     
     enum LottieAnimation {
