@@ -50,20 +50,18 @@ extension TvShowCell {
         if let url:URL = URL(string: url) {
             let resource = ImageResource(downloadURL: url, cacheKey: name)
             imageView.kf.setImage(with: resource, options: nil, completionHandler: { (image, _, _, _) in
-                DispatchQueue.main.async(execute: {
                     if let imageResult = image {
                         self.imageShow.image = imageResult
                     }else {
                         print("error")
-//                        self.imageMovie.image = self.getImageDefault()
+                        self.imageShow.image = self.getImageDefault()
                     }
-                })
             })
         }
     }
     
     private func getImageDefault() -> UIImage {
-        if let image = UIImage(named: "errorImage"){
+        if let image = UIImage(named: Constants.viewImage.defaultImage) {
             return image
         }
         return UIImage()
