@@ -29,10 +29,10 @@ class TvShowCell: UICollectionViewCell {
         if let isFavorite = self.viewData?.isFavorite,
             isFavorite == false {
             self.viewData?.isFavorite = true
-            self.buttonFavorite.setImage(Image(named: Constants.viewImages.favorite), for: .normal)
+            self.buttonFavorite.setImage(Image(named: Constants.viewImage.favorite), for: .normal)
         } else {
             self.viewData?.isFavorite = false
-            self.buttonFavorite.setImage(Image(named: Constants.viewImages.notFavorite), for: .normal)
+            self.buttonFavorite.setImage(Image(named: Constants.viewImage.notFavorite), for: .normal)
         }
         
     }
@@ -54,6 +54,7 @@ extension TvShowCell {
                     if let imageResult = image {
                         self.imageShow.image = imageResult
                     }else {
+                        print("error")
 //                        self.imageMovie.image = self.getImageDefault()
                     }
                 })

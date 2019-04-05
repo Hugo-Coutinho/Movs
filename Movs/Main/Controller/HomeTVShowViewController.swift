@@ -9,16 +9,21 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Lottie
 
 final class HomeTVShowViewController: UIViewController {
     
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var loadingView: LOTAnimationView!
+    @IBOutlet weak var labelLoadingMessage: UILabel!
     
-    private var vm: HomeViewModel = HomeViewModel()
+    
+    private var vm: HomeViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.vm = HomeViewModel(delegate: self)
         configureTableViewDelegate()
         configure()
     }
@@ -67,6 +72,40 @@ extension HomeTVShowViewController: UICollectionViewDelegateFlowLayout {
     func  collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width*0.4, height: view.frame.height/3)
     }
+    
+}
+
+extension HomeTVShowViewController: HomeViewModelDelegate {
+    func success() {
+        UIView.animate(withDuration: 0.2) {
+            self.loadingView.isHidden = true
+            self.collectionView.isHidden = false
+            self.loadingView.pause()
+        }
+    }
+    
+    func loading() {
+        UIView.animate(withDuration: 0.2) {
+            self.loadingView.isHidden = false
+            self.collectionView.isHidden = true
+            self.loadingView.setAnimation(named: Constants.LottieAnimation.loading)
+            self.loadingView.play()
+            self.loadingView.loopAnimation = true
+            self.labelLoadingMessage.text = Constants.LottieAnimation.Message.loadingMessage
+        }
+    }
+    
+    func error() {
+        UIView.animate(withDuration: 0.2) {
+            self.loadingView.isHidden = false
+            self.collectionView.isHidden = true
+            self.loadingView.setAnimation(named: Constants.LottieAnimation.error)
+            self.loadingView.play()
+            self.loadingView.loopAnimation = true
+            self.labelLoadingMessage.text = Constants.LottieAnimation.Message.errorMessage
+        }
+    }
+    
     
 }
 

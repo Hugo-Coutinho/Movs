@@ -24,8 +24,18 @@ enum Constants {
         static let tvShowCell: String = "TvShowCell"
     }
     
-    enum viewImages {
+    enum viewImage {
         static let favorite: String = "favorite_full_icon"
         static let notFavorite: String = "favorite_gray_icon"
+    }
+    
+    enum LottieAnimation {
+        static let loading = "loading"
+        static let error = "connection-error"
+        
+        enum Message {
+            static let loadingMessage = "searching Tv Shows ..."
+            static let errorMessage = "An error has ocurred. Tap here to try again"
+        }
     }
 }

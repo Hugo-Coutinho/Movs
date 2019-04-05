@@ -10,14 +10,32 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+protocol HomeViewModelDelegate {
+    func success()
+    func loading()
+    func error()
+}
+
 final class HomeViewModel {
     
+    private enum StatesScreen:Int {
+        case loading
+        case error
+        case success
+        case unavailableError
+    }
+    
+    private var states: StatesScreen = StatesScreen.loading
     var items = BehaviorRelay(value: TvViewDataModel())
     private let tvService = TvService()
     private let genresService = GenreService()
+    private var delegate: HomeViewModelDelegate?
     let bag = DisposeBag()
     
-    init() {
+    
+    init(delegate: HomeViewModelDelegate) {
+        self.delegate = delegate
+        self.loading()
         fetchTvShows()
     }
 }
@@ -30,8 +48,10 @@ extension HomeViewModel {
             switch $0 {
             case .success(let element):
                 self.acceptItems(results: element.results)
+                self.success()
             case .error(let error):
                 print(error)
+                self.error()
             }
             }.disposed(by: self.bag)
     }
@@ -74,4 +94,22 @@ extension HomeViewModel {
 }
 
 
+// MARK: - VIEW STATES
+extension HomeViewModel {
+    
+    private func success() {
+        self.states = .success
+        self.delegate?.success()
+    }
+    
+    private func loading() {
+        self.states = .loading
+        self.delegate?.loading()
+    }
+    
+    private func error() {
+        self.states = .error
+        self.delegate?.error()
+    }
+}
 

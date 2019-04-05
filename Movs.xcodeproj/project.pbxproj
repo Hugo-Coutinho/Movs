@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63013F1122577695006C6F65 /* connection-error.json in Resources */ = {isa = PBXBuildFile; fileRef = 63013F1022577695006C6F65 /* connection-error.json */; };
+		63013F13225778DE006C6F65 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 63013F12225778DE006C6F65 /* loading.json */; };
 		63586CD42242F8DC00884EC8 /* TvModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63586CD32242F8DC00884EC8 /* TvModel.swift */; };
 		63586CD6224303B700884EC8 /* TvService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63586CD5224303B700884EC8 /* TvService.swift */; };
 		6359D26E22501B78004CCA3E /* TvShowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6359D26C22501B78004CCA3E /* TvShowCell.swift */; };
@@ -50,6 +52,8 @@
 
 /* Begin PBXFileReference section */
 		0307B32735E6256514DAFC70 /* Pods-Movs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Movs/Pods-Movs.debug.xcconfig"; sourceTree = "<group>"; };
+		63013F1022577695006C6F65 /* connection-error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "connection-error.json"; path = "../../../../../../Downloads/connection-error.json"; sourceTree = "<group>"; };
+		63013F12225778DE006C6F65 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = loading.json; path = ../../../../../../Downloads/loading.json; sourceTree = "<group>"; };
 		63586CD32242F8DC00884EC8 /* TvModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvModel.swift; sourceTree = "<group>"; };
 		63586CD5224303B700884EC8 /* TvService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvService.swift; sourceTree = "<group>"; };
 		6359D26C22501B78004CCA3E /* TvShowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowCell.swift; sourceTree = "<group>"; };
@@ -115,6 +119,15 @@
 				AC248A5B3A7F233BF8C20F29 /* Pods_Movs.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		63013F0F22577673006C6F65 /* LottieDemo */ = {
+			isa = PBXGroup;
+			children = (
+				63013F12225778DE006C6F65 /* loading.json */,
+				63013F1022577695006C6F65 /* connection-error.json */,
+			);
+			path = LottieDemo;
 			sourceTree = "<group>";
 		};
 		6359D27422524F63004CCA3E /* Router */ = {
@@ -229,6 +242,7 @@
 		638C9B0E223AF2D9006D5D9C /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				63013F0F22577673006C6F65 /* LottieDemo */,
 				6359D27A22531712004CCA3E /* Constants.swift */,
 			);
 			path = Helper;
@@ -421,8 +435,10 @@
 			files = (
 				638C9AE7223AECE0006D5D9C /* LaunchScreen.storyboard in Resources */,
 				638C9B1D223AFF04006D5D9C /* Assets.xcassets in Resources */,
+				63013F13225778DE006C6F65 /* loading.json in Resources */,
 				6359D26F22501B78004CCA3E /* TvShowCell.xib in Resources */,
 				638C9AE2223AECDE006D5D9C /* Main.storyboard in Resources */,
+				63013F1122577695006C6F65 /* connection-error.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +477,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -475,6 +492,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
