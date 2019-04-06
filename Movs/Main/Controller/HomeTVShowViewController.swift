@@ -23,9 +23,9 @@ final class HomeTVShowViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.vm = HomeViewModel(delegate: self)
-        configureTableViewDelegate()
-        configure()
+            self.vm = HomeViewModel(delegate: self)
+            configureTableViewDelegate()
+            configure()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,7 +81,7 @@ extension HomeTVShowViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK: - VIEWMODEL DELEGATE
 extension HomeTVShowViewController: HomeViewModelDelegate {
-    func success() {
+    func successRequest() {
         UIView.animate(withDuration: 0.2) {
             self.loadingView.isHidden = true
             self.collectionView.isHidden = false
@@ -89,25 +89,14 @@ extension HomeTVShowViewController: HomeViewModelDelegate {
         }
     }
     
-    func loading() {
+    func setupAnimation(animationMode: String, message: String) {
         UIView.animate(withDuration: 0.2) {
             self.loadingView.isHidden = false
             self.collectionView.isHidden = true
-            self.loadingView.setAnimation(named: Constants.LottieAnimation.loading)
+            self.loadingView.setAnimation(named: animationMode)
             self.loadingView.play()
             self.loadingView.loopAnimation = true
-            self.labelLoadingMessage.text = Constants.LottieAnimation.Message.loadingMessage
-        }
-    }
-    
-    func error() {
-        UIView.animate(withDuration: 0.2) {
-            self.loadingView.isHidden = false
-            self.collectionView.isHidden = true
-            self.loadingView.setAnimation(named: Constants.LottieAnimation.error)
-            self.loadingView.play()
-            self.loadingView.loopAnimation = true
-            self.labelLoadingMessage.text = Constants.LottieAnimation.Message.errorMessage
+            self.labelLoadingMessage.text = message
         }
     }
 }

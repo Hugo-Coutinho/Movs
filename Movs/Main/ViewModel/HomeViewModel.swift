@@ -11,21 +11,12 @@ import RxSwift
 import RxCocoa
 
 protocol HomeViewModelDelegate {
-    func success()
-    func loading()
-    func error()
+    func successRequest()
+    func setupAnimation(animationMode: String, message: String)
 }
 
 final class HomeViewModel {
     
-    private enum StatesScreen:Int {
-        case loading
-        case error
-        case success
-        case unavailableError
-    }
-    
-    private var states: StatesScreen = StatesScreen.loading
     var items = BehaviorRelay(value: TvViewDataModel())
     var allItems = TvViewDataModel()
     private let tvService = TvService()
@@ -36,8 +27,17 @@ final class HomeViewModel {
     
     init(delegate: HomeViewModelDelegate) {
         self.delegate = delegate
-        self.loading()
+        
+        do {
+            
+            try CheckInternetConnection().connectionOk()
+            
+        self.delegate?.setupAnimation(animationMode: Constants.LottieAnimation.loading, message: Constants.LottieAnimation.Message.loadingMessage)
         fetchTvShows()
+            
+        } catch {
+            self.delegate?.setupAnimation(animationMode: Constants.LottieAnimation.offline, message: Constants.LottieAnimation.Message.offlineMessage)
+        }
     }
 }
 
@@ -49,10 +49,10 @@ extension HomeViewModel {
             switch $0 {
             case .success(let element):
                 self.acceptItems(results: element.results)
-                self.success()
+                self.delegate?.successRequest()
             case .error(let error):
                 print(error)
-                self.error()
+                self.delegate?.setupAnimation(animationMode: Constants.LottieAnimation.error, message: Constants.LottieAnimation.Message.errorMessage)
             }
             }.disposed(by: self.bag)
     }
@@ -94,24 +94,3 @@ extension HomeViewModel {
         self.fetchGenres(tvShowModel: model, genresIDS: ids)
     }
 }
-
-
-// MARK: - VIEW STATES
-extension HomeViewModel {
-    
-    private func success() {
-        self.states = .success
-        self.delegate?.success()
-    }
-    
-    private func loading() {
-        self.states = .loading
-        self.delegate?.loading()
-    }
-    
-    private func error() {
-        self.states = .error
-        self.delegate?.error()
-    }
-}
-

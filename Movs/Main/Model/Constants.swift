@@ -33,10 +33,12 @@ enum Constants {
     enum LottieAnimation {
         static let loading = "loading"
         static let error = "connection-error"
+        static let offline = "network_error"
         
         enum Message {
             static let loadingMessage = "searching Tv Shows ..."
             static let errorMessage = "An error has ocurred. Tap here to try again"
+            static let offlineMessage = "No connection. Tap here to try again"
         }
     }
 }
