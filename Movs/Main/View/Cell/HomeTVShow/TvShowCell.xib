@@ -19,11 +19,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="160" height="219"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="URv-YH-RPw">
-                        <rect key="frame" x="0.0" y="1" width="160" height="165"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="165" id="DTt-rL-Ypv"/>
-                        </constraints>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="URv-YH-RPw">
+                        <rect key="frame" x="0.0" y="0.0" width="160" height="167"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XbI-dS-Ica">
                         <rect key="frame" x="0.0" y="167" width="160" height="52"/>
@@ -65,7 +62,7 @@
             </view>
             <constraints>
                 <constraint firstItem="XbI-dS-Ica" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="7Jn-nE-8xp"/>
-                <constraint firstItem="XbI-dS-Ica" firstAttribute="top" secondItem="URv-YH-RPw" secondAttribute="bottom" constant="2" id="Br4-Iz-8ph"/>
+                <constraint firstItem="XbI-dS-Ica" firstAttribute="top" secondItem="URv-YH-RPw" secondAttribute="bottom" id="Br4-Iz-8ph"/>
                 <constraint firstItem="URv-YH-RPw" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Pfm-iM-ydc"/>
                 <constraint firstAttribute="trailing" secondItem="URv-YH-RPw" secondAttribute="trailing" id="RcP-Fj-NlY"/>
                 <constraint firstItem="URv-YH-RPw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ZqM-wD-hk2"/>

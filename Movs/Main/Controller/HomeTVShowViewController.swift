@@ -66,17 +66,7 @@ extension HomeTVShowViewController {
 
 // MARK: - COLLECTION VIEW DELEGATE FLOW
 extension HomeTVShowViewController: UICollectionViewDelegateFlowLayout {
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.searchController?.searchBar.isHidden = false
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.navigationController?.navigationBar.prefersLargeTitles = false
-        navigationItem.searchController?.searchBar.isHidden = true
-    }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10.0
     }
@@ -116,7 +106,7 @@ extension HomeTVShowViewController: HomeViewModelDelegate {
 // MARK: - NAVBAR HELPER
 extension HomeTVShowViewController {
     private func setupNavBar() {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.prefersLargeTitles = false
         setupSearchBar()
     }
     
