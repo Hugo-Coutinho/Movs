@@ -20,12 +20,14 @@ final class HomeTVShowViewController: UIViewController {
     
     
     private var vm: HomeViewModel!
+    var tap: UITapGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            self.vm = HomeViewModel(delegate: self)
-            configureTableViewDelegate()
-            configure()
+        setTap()
+        self.vm = HomeViewModel(delegate: self)
+        configureCollectionViewDelegate()
+        configure()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,7 +42,7 @@ extension HomeTVShowViewController {
         collectionViewRegister()
     }
     
-    private func configureTableViewDelegate() {
+    private func configureCollectionViewDelegate() {
         collectionView
             .rx
             .setDelegate(self)
@@ -64,6 +66,16 @@ extension HomeTVShowViewController {
 
 // MARK: - COLLECTION VIEW DELEGATE FLOW
 extension HomeTVShowViewController: UICollectionViewDelegateFlowLayout {
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.searchController?.searchBar.isHidden = false
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.searchController?.searchBar.isHidden = true
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10.0
@@ -104,16 +116,15 @@ extension HomeTVShowViewController: HomeViewModelDelegate {
 // MARK: - NAVBAR HELPER
 extension HomeTVShowViewController {
     private func setupNavBar() {
-        self.navigationItem.largeTitleDisplayMode = .never
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         setupSearchBar()
-        
     }
     
     private func setupSearchBar() {
         let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = true
+        navigationItem.searchController?.searchBar.delegate = self
+        self.definesPresentationContext = true
     }
 }
 
@@ -122,10 +133,28 @@ extension HomeTVShowViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
-        self.vm.items.accept(self.vm.allItems)
+            self.vm.items.accept(self.vm.allItems)
         } else {
             self.vm.items.accept(self.vm.allItems.filter({ $0.titleTvShow.lowercased().contains(searchText.lowercased()) }))
         }
-        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.vm.items.accept(self.vm.allItems)
+    }
+}
+
+// MARK: - SETUP TAP
+extension HomeTVShowViewController {
+    
+    private func setTap() {
+        self.tap = UITapGestureRecognizer(target: self, action: #selector(HomeTVShowViewController.animationTapped))
+        self.loadingView.addGestureRecognizer(self.tap)
+    }
+    
+    @objc private func animationTapped() {
+        self.vm = HomeViewModel(delegate: self)
+        configureCollectionViewDelegate()
+        configure()
     }
 }
