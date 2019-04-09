@@ -41,4 +41,9 @@ enum Constants {
             static let offlineMessage = "No connection. Tap here to try again"
         }
     }
+    
+    enum Persistence {
+        static let sortDescriptor = "titleTvShow"
+        static let container = "Best_Series"
+    }
 }

@@ -18,23 +18,23 @@ class TvShowCell: UICollectionViewCell {
     @IBOutlet weak var buttonFavorite: UIButton!
     
     private var viewData: TvViewDataElement?
+    private var db: FavoriteManager!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        db = FavoriteManager()
     }
     
     
     @IBAction func selectFavorite(_ sender: Any) {
         if let isFavorite = self.viewData?.isFavorite,
             isFavorite == false {
-            self.viewData?.isFavorite = true
             self.buttonFavorite.setImage(Image(named: Constants.viewImage.favorite), for: .normal)
+             saveToDatabase()
         } else {
-            self.viewData?.isFavorite = false
             self.buttonFavorite.setImage(Image(named: Constants.viewImage.notFavorite), for: .normal)
+            deleteFromDatabase()
         }
-        
     }
     
     func prepare(element: TvViewDataElement) {
@@ -58,6 +58,18 @@ extension TvShowCell {
                     }
             })
         }
+    }
+    
+    private func saveToDatabase() {
+        self.viewData?.isFavorite = true
+        guard let viewData = self.viewData else { return }
+        self.db.save(element: viewData)
+    }
+    
+    private func deleteFromDatabase() {
+        guard let viewData = self.viewData else { return }
+        self.db.delete(element: viewData)
+        self.viewData?.isFavorite = false
     }
     
     private func getImageDefault() -> UIImage {
