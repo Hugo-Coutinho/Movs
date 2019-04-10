@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import Lottie
 
 class FavoriteTVShowViewController: UIViewController {
     
     // MARK: - OUTLETS
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var animationContainer: UIView!
+    @IBOutlet weak var animationView: LOTAnimationView!
+    @IBOutlet weak var labelAnimationMessage: UILabel!
     
     // MARK: - PROPERTIES
     private var vm: FavoriteViewModel!
@@ -21,11 +25,13 @@ class FavoriteTVShowViewController: UIViewController {
         vm = FavoriteViewModel()
         configureTableViewDelegate()
         configure()
+        setupNavBar()
+        self.FavoriteTvVisibility()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.animationContainer.isHidden = true
         self.vm.fetchFavorites()
-        setupSearchBar()
     }
 }
 
@@ -92,6 +98,26 @@ extension FavoriteTVShowViewController: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.vm.fetchFavorites()
+    }
+}
+
+// MARK: - VIEWMODEL DELEGATE
+extension FavoriteTVShowViewController: FavoriteViewModelDelegate {
+    func FavoriteTvVisibility() {
+        UIView.animate(withDuration: 0.2) {
+            self.animationView.isHidden = true
+            self.tableView.isHidden = false
+            self.animationView.pause()
+        }
+    }
+    
+    func setupAnimationVisibility(animationMode: String, message: String) {
+        let animation = LottieAnimationVisibility()
+        UIView.animate(withDuration: 0.2) {
+            self.tableView.isHidden = true
+            self.labelAnimationMessage.text = message
+            animation.setupAnimation(animationMode: animationMode, view: self.animationView)
+        }
     }
 }
 

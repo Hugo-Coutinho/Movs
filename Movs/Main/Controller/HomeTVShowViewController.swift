@@ -28,9 +28,6 @@ final class HomeTVShowViewController: UIViewController {
         self.vm = HomeViewModel(delegate: self)
         configureCollectionViewDelegate()
         configure()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         setupNavBar()
     }
 }
@@ -83,7 +80,7 @@ extension HomeTVShowViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK: - VIEWMODEL DELEGATE
 extension HomeTVShowViewController: HomeViewModelDelegate {
-    func successRequest() {
+    func setupTvShowVisibility() {
         UIView.animate(withDuration: 0.2) {
             self.loadingView.isHidden = true
             self.collectionView.isHidden = false
@@ -91,14 +88,12 @@ extension HomeTVShowViewController: HomeViewModelDelegate {
         }
     }
     
-    func setupAnimation(animationMode: String, message: String) {
+    func setupAnimationVisibility(animationMode: String, message: String) {
+        let animation = LottieAnimationVisibility()
         UIView.animate(withDuration: 0.2) {
-            self.loadingView.isHidden = false
             self.collectionView.isHidden = true
-            self.loadingView.setAnimation(named: animationMode)
-            self.loadingView.play()
-            self.loadingView.loopAnimation = true
             self.labelLoadingMessage.text = message
+            animation.setupAnimation(animationMode: animationMode, view: self.loadingView)
         }
     }
 }
@@ -122,11 +117,20 @@ extension HomeTVShowViewController {
 extension HomeTVShowViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        setupTvShowVisibility()
         if searchText.isEmpty {
             self.vm.items.accept(self.vm.allItems)
         } else {
-            self.vm.items.accept(self.vm.allItems.filter({ $0.titleTvShow.lowercased().contains(searchText.lowercased()) }))
+            let filteredItems = self.vm.allItems.filter({ $0.titleTvShow.lowercased().contains(searchText.lowercased()) })
+            self.vm.items.accept(filteredItems)
+            if filteredItems.count == 0 {
+                setupAnimationVisibility(animationMode: Constants.LottieAnimation.notFound, message: Constants.LottieAnimation.Message.notFoundMessage)
+            }
         }
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        setupTvShowVisibility()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

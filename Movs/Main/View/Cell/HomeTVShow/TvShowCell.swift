@@ -27,25 +27,59 @@ class TvShowCell: UICollectionViewCell {
     
     
     @IBAction func selectFavorite(_ sender: Any) {
-        if let isFavorite = self.viewData?.isFavorite,
-            isFavorite == false {
-            self.buttonFavorite.setImage(Image(named: Constants.viewImage.favorite), for: .normal)
-             saveToDatabase()
-        } else {
-            self.buttonFavorite.setImage(Image(named: Constants.viewImage.notFavorite), for: .normal)
-            deleteFromDatabase()
-        }
+        guard let isFavorite = self.viewData?.isFavorite else { return }
+        favoriteValidation(isFavorite: isFavorite, isFromDatabase: false)
     }
     
     func prepare(element: TvViewDataElement) {
         self.viewData = element
         self.labelShowName.text = element.titleTvShow
         downloadImage(element.urlImage, element.titleTvShow, self.imageShow)
+        
+        guard let dbElement = db.getCurrentFavorite(title: element.titleTvShow) else { return }
+        self.viewData?.isFavorite = dbElement.isFavorite
+        favoriteValidation(isFavorite: dbElement.isFavorite, isFromDatabase: true)
     }
 }
 
 // MARK: - HELPER FUNCTIONS
 extension TvShowCell {
+    private func favoriteValidation(isFavorite: Bool, isFromDatabase: Bool) {
+        if isFromDatabase {
+            favoriteValidationFromDB(isFavorite: isFavorite)
+        } else {
+            favoriteValidationFromSelected(isFavorite: isFavorite)
+        }
+    }
+    
+    private func favoriteValidationFromDB(isFavorite: Bool) {
+        if isFavorite {
+            self.buttonFavorite.setImage(Image(named: Constants.viewImage.favorite), for: .normal)
+        } else {
+            self.buttonFavorite.setImage(Image(named: Constants.viewImage.notFavorite), for: .normal)
+        }
+    }
+    
+    private func favoriteValidationFromSelected(isFavorite: Bool) {
+        if !isFavorite {
+            self.buttonFavorite.setImage(Image(named: Constants.viewImage.favorite), for: .normal)
+            saveToDatabase()
+        } else {
+            self.buttonFavorite.setImage(Image(named: Constants.viewImage.notFavorite), for: .normal)
+            deleteFromDatabase()
+        }
+    }
+    
+    private func favoriteValidation(isFavorite: Bool) {
+            if isFavorite == false {
+            self.buttonFavorite.setImage(Image(named: Constants.viewImage.favorite), for: .normal)
+            saveToDatabase()
+        } else {
+            self.buttonFavorite.setImage(Image(named: Constants.viewImage.notFavorite), for: .normal)
+            deleteFromDatabase()
+        }
+    }
+    
     private func downloadImage(_ url: String, _ name: String, _ imageView: UIImageView) {
         if let url:URL = URL(string: url) {
             let resource = ImageResource(downloadURL: url, cacheKey: name)

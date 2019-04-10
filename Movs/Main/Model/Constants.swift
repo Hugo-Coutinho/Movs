@@ -35,11 +35,13 @@ enum Constants {
         static let loading = "loading"
         static let error = "connection-error"
         static let offline = "network_error"
+        static let notFound = "not-found"
         
         enum Message {
             static let loadingMessage = "searching Tv Shows ..."
             static let errorMessage = "An error has ocurred. Tap here to try again"
             static let offlineMessage = "No connection. Tap here to try again"
+            static let notFoundMessage = "search another tv show please"
         }
     }
     

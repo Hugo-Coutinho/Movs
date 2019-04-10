@@ -53,6 +53,13 @@ extension FavoriteManager {
         }
         return list
     }
+    
+    func getCurrentFavorite(title: String) -> TvViewDataElement? {
+        if let fav = self.getFavorite(titleTvShow: title) {
+            return parseToElement(db: fav)
+        }
+        return nil
+    }
 }
 
 // MARK: - HELPER FUNCTIONS

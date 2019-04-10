@@ -11,8 +11,8 @@ import RxSwift
 import RxCocoa
 
 protocol HomeViewModelDelegate {
-    func successRequest()
-    func setupAnimation(animationMode: String, message: String)
+    func setupTvShowVisibility()
+    func setupAnimationVisibility(animationMode: String, message: String)
 }
 
 final class HomeViewModel {
@@ -32,11 +32,11 @@ final class HomeViewModel {
             
             try CheckInternetConnection().connectionOk()
             
-        self.delegate?.setupAnimation(animationMode: Constants.LottieAnimation.loading, message: Constants.LottieAnimation.Message.loadingMessage)
+        self.delegate?.setupAnimationVisibility(animationMode: Constants.LottieAnimation.loading, message: Constants.LottieAnimation.Message.loadingMessage)
         fetchTvShows()
             
         } catch {
-            self.delegate?.setupAnimation(animationMode: Constants.LottieAnimation.offline, message: Constants.LottieAnimation.Message.offlineMessage)
+            self.delegate?.setupAnimationVisibility(animationMode: Constants.LottieAnimation.offline, message: Constants.LottieAnimation.Message.offlineMessage)
         }
     }
 }
@@ -49,10 +49,10 @@ extension HomeViewModel {
             switch $0 {
             case .success(let element):
                 self.acceptItems(results: element.results)
-                self.delegate?.successRequest()
+                self.delegate?.setupTvShowVisibility()
             case .error(let error):
                 print(error)
-                self.delegate?.setupAnimation(animationMode: Constants.LottieAnimation.error, message: Constants.LottieAnimation.Message.errorMessage)
+                self.delegate?.setupAnimationVisibility(animationMode: Constants.LottieAnimation.error, message: Constants.LottieAnimation.Message.errorMessage)
             }
             }.disposed(by: self.bag)
     }
