@@ -13,7 +13,7 @@ import RxCocoa
 final class FavoriteViewModel {
     
     var favoriteList = BehaviorRelay(value: TvViewDataModel())
-    private var db: FavoriteManager = FavoriteManager()
+    var db: FavoriteManager = FavoriteManager()
     let bag = DisposeBag()
     
     func fetchFavorites() {

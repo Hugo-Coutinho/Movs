@@ -25,6 +25,7 @@ class FavoriteTVShowViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.vm.fetchFavorites()
+        setupSearchBar()
     }
 }
 
@@ -59,6 +60,38 @@ extension FavoriteTVShowViewController {
 extension FavoriteTVShowViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return view.frame.height/5
+    }
+}
+
+// MARK: - NAVBAR HELPER
+extension FavoriteTVShowViewController {
+    private func setupNavBar() {
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+        setupSearchBar()
+    }
+    
+    private func setupSearchBar() {
+        let searchController = UISearchController(searchResultsController: nil)
+        navigationItem.searchController = searchController
+        navigationItem.searchController?.searchBar.delegate = self
+        navigationItem.hidesSearchBarWhenScrolling = false
+        self.definesPresentationContext = true
+    }
+}
+
+// MARK: - SEARCHBAR DELEGATE
+extension FavoriteTVShowViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            self.vm.fetchFavorites()
+        } else {
+            self.vm.favoriteList.accept(self.vm.db.findAll().filter({ $0.titleTvShow.lowercased().contains(searchText.lowercased()) }))
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.vm.fetchFavorites()
     }
 }
 
