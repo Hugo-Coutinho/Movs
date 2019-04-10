@@ -42,10 +42,49 @@ extension FavoriteManager {
             }
         }
     }
+    
+    func findAll() -> TvViewDataModel {
+        var list = TvViewDataModel()
+        if let db = getFavoriteList(),
+            db.count > 0 {
+            db.forEach {
+                list.append(parseToElement(db: $0))
+            }
+        }
+        return list
+    }
 }
 
 // MARK: - HELPER FUNCTIONS
 extension FavoriteManager {
+    private func parseToElement(db: Favorite) -> TvViewDataElement {
+     return TvViewDataElement(titleTvShow: db.titleTvShow ?? "",
+                             releaseDate: db.releaseDate ?? "",
+                             description: db.tvDescription ?? "",
+                             urlImage: db.urlImage ?? "",
+                             isFavorite: db.isFavorite,
+                             genres: parseToGenre(db: db))
+    }
+    
+    private func parseToGenre(db: Favorite) -> [String]? {
+        var list = [String]()
+        db.genres?.forEach {
+            let fav = ($0 as! FavoriteGenre)
+            if let name = fav.name {
+                list.append(name)
+            }
+        }
+        return list
+    }
+    
+    private func getFavoriteList() -> [Favorite]? {
+        do {
+            return try self.context.fetch(self.fetchRequest)
+        } catch {
+            return nil
+        }
+    }
+    
     private func getFavoriteGenre(genres: [String], db: Favorite) {
         for currentGenre in genres{
             let genreDB = FavoriteGenre(context: self.context)

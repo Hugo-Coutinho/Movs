@@ -21,6 +21,9 @@
 		636C5DBA225D37580015CE20 /* MainCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C5DB9225D37580015CE20 /* MainCoreData.swift */; };
 		636C5DBE225D38310015CE20 /* Best_Series.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 636C5DBC225D38310015CE20 /* Best_Series.xcdatamodeld */; };
 		636C5DC0225D39520015CE20 /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C5DBF225D39520015CE20 /* FavoriteManager.swift */; };
+		636C5DC4225D5DC40015CE20 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C5DC2225D5DC40015CE20 /* FavoriteCell.swift */; };
+		636C5DC5225D5DC40015CE20 /* FavoriteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636C5DC3225D5DC40015CE20 /* FavoriteCell.xib */; };
+		636C5DC7225D73670015CE20 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C5DC6225D73670015CE20 /* FavoriteViewModel.swift */; };
 		6385B7742258534C00A72602 /* network_error.json in Resources */ = {isa = PBXBuildFile; fileRef = 6385B7732258534B00A72602 /* network_error.json */; };
 		6385B77C2258576F00A72602 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6385B77A2258576E00A72602 /* Reachability.swift */; };
 		6385B77D2258576F00A72602 /* CheckInternetConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6385B77B2258576E00A72602 /* CheckInternetConnection.swift */; };
@@ -73,6 +76,9 @@
 		636C5DB9225D37580015CE20 /* MainCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoreData.swift; sourceTree = "<group>"; };
 		636C5DBD225D38310015CE20 /* Best_Series.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Best_Series.xcdatamodel; sourceTree = "<group>"; };
 		636C5DBF225D39520015CE20 /* FavoriteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteManager.swift; sourceTree = "<group>"; };
+		636C5DC2225D5DC40015CE20 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
+		636C5DC3225D5DC40015CE20 /* FavoriteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteCell.xib; sourceTree = "<group>"; };
+		636C5DC6225D73670015CE20 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		6385B7732258534B00A72602 /* network_error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = network_error.json; path = ../../../../../../Downloads/network_error.json; sourceTree = "<group>"; };
 		6385B77A2258576E00A72602 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		6385B77B2258576E00A72602 /* CheckInternetConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInternetConnection.swift; sourceTree = "<group>"; };
@@ -187,6 +193,15 @@
 				636C5DBC225D38310015CE20 /* Best_Series.xcdatamodeld */,
 			);
 			path = Database;
+			sourceTree = "<group>";
+		};
+		636C5DC1225D5D9C0015CE20 /* FavoriteCell */ = {
+			isa = PBXGroup;
+			children = (
+				636C5DC2225D5DC40015CE20 /* FavoriteCell.swift */,
+				636C5DC3225D5DC40015CE20 /* FavoriteCell.xib */,
+			);
+			path = FavoriteCell;
 			sourceTree = "<group>";
 		};
 		6385B7792258576E00A72602 /* CheckInternet */ = {
@@ -333,6 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				63EE3AC722400FC000C9D882 /* HomeViewModel.swift */,
+				636C5DC6225D73670015CE20 /* FavoriteViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -365,6 +381,7 @@
 		638C9B19223AFABB006D5D9C /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				636C5DC1225D5D9C0015CE20 /* FavoriteCell */,
 				63C867112247C6BA00E3C280 /* HomeTVShow */,
 			);
 			path = Cell;
@@ -495,6 +512,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				638C9AE7223AECE0006D5D9C /* LaunchScreen.storyboard in Resources */,
+				636C5DC5225D5DC40015CE20 /* FavoriteCell.xib in Resources */,
 				638C9B1D223AFF04006D5D9C /* Assets.xcassets in Resources */,
 				63013F13225778DE006C6F65 /* loading.json in Resources */,
 				6359D26F22501B78004CCA3E /* TvShowCell.xib in Resources */,
@@ -596,6 +614,7 @@
 				6359D27322524F2D004CCA3E /* GenreRouter.swift in Sources */,
 				6359D2712250FB11004CCA3E /* TvViewData.swift in Sources */,
 				636C5DBA225D37580015CE20 /* MainCoreData.swift in Sources */,
+				636C5DC7225D73670015CE20 /* FavoriteViewModel.swift in Sources */,
 				638C9B16223AFA34006D5D9C /* HomeTVShowViewController.swift in Sources */,
 				6359D2792252541B004CCA3E /* Genre.swift in Sources */,
 				63586CD6224303B700884EC8 /* TvService.swift in Sources */,
@@ -607,6 +626,7 @@
 				63EE3AC6223FFC4900C9D882 /* TmdbRouter.swift in Sources */,
 				6359D26E22501B78004CCA3E /* TvShowCell.swift in Sources */,
 				636C5DC0225D39520015CE20 /* FavoriteManager.swift in Sources */,
+				636C5DC4225D5DC40015CE20 /* FavoriteCell.swift in Sources */,
 				636C5DBE225D38310015CE20 /* Best_Series.xcdatamodeld in Sources */,
 				63586CD42242F8DC00884EC8 /* TvModel.swift in Sources */,
 			);

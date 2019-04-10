@@ -9,10 +9,16 @@
 import UIKit
 
 class FavoriteTVShowViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    private var vm: FavoriteViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        vm = FavoriteViewModel()
+        
     }
 
 
