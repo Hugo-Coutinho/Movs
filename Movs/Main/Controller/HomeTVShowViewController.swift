@@ -13,12 +13,12 @@ import Lottie
 
 final class HomeTVShowViewController: UIViewController {
     
-    
+    // MARK: - OUTLETS
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var loadingView: LOTAnimationView!
     @IBOutlet weak var labelLoadingMessage: UILabel!
     
-    
+    // MARK: - PROPERTIES
     private var vm: HomeViewModel!
     var tap: UITapGestureRecognizer!
     

@@ -22,6 +22,7 @@ enum Constants {
     
     enum cellIdentifier {
         static let tvShowCell: String = "TvShowCell"
+        static let tvFavoriteShowCell: String = "FavoriteCell"
     }
     
     enum viewImage {

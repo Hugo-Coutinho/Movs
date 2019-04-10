@@ -7,15 +7,18 @@
 //
 
 import Foundation
-
+import RxSwift
+import RxCocoa
 
 final class FavoriteViewModel {
-
-    private var favoriteList: TvViewDataModel = TvViewDataModel()
-    private var db: FavoriteManager = FavoriteManager()
     
-    init() {
-        favoriteList = db.findAll()
+    var favoriteList = BehaviorRelay(value: TvViewDataModel())
+    private var db: FavoriteManager = FavoriteManager()
+    let bag = DisposeBag()
+    
+    func fetchFavorites() {
+        favoriteList.accept(db.findAll())
     }
 }
+
 
