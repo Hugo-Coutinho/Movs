@@ -23,10 +23,10 @@ class FavoriteCell: UITableViewCell {
         super.awakeFromNib()
         self.selectionStyle = .none
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -35,30 +35,14 @@ class FavoriteCell: UITableViewCell {
         self.labelShowTitle.text = element.titleTvShow
         self.labelShowYear.text = element.releaseDate
         self.labelShowDescription.text = element.description
-        self.downloadImage(element.urlImage, element.titleTvShow, self.imageViewShow)
+        self.imageManager(element.urlImage, element.titleTvShow, self.imageViewShow)
     }
     
 }
 
-extension FavoriteCell {
-    private func downloadImage(_ url: String, _ name: String, _ imageView: UIImageView) {
-        if let url:URL = URL(string: url) {
-            let resource = ImageResource(downloadURL: url, cacheKey: name)
-            imageView.kf.setImage(with: resource, options: nil, completionHandler: { (image, _, _, _) in
-                if let imageResult = image {
-                    self.imageViewShow.image = imageResult
-                }else {
-                    print("error")
-                    self.imageViewShow.image = self.getImageDefault()
-                }
-            })
-        }
-    }
-    
-    private func getImageDefault() -> UIImage {
-        if let image = UIImage(named: Constants.viewImage.defaultImage) {
-            return image
-        }
-        return UIImage()
+extension FavoriteCell: LottieAnimationImageManager {
+
+    private func imageManager(_ url: String, _ name: String, _ imageView: UIImageView) {
+        self.downloadImage(url, name, imageView)
     }
 }

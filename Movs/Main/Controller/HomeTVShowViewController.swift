@@ -79,7 +79,7 @@ extension HomeTVShowViewController: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - VIEWMODEL DELEGATE
-extension HomeTVShowViewController: HomeViewModelDelegate {
+extension HomeTVShowViewController: HomeViewModelDelegate, LottieAnimationVisibility {
     func setupTvShowVisibility() {
         UIView.animate(withDuration: 0.2) {
             self.loadingView.isHidden = true
@@ -89,11 +89,10 @@ extension HomeTVShowViewController: HomeViewModelDelegate {
     }
     
     func setupAnimationVisibility(animationMode: String, message: String) {
-        let animation = LottieAnimationVisibility()
         UIView.animate(withDuration: 0.2) {
             self.collectionView.isHidden = true
             self.labelLoadingMessage.text = message
-            animation.setupAnimation(animationMode: animationMode, view: self.loadingView)
+            self.setupAnimation(animationMode: animationMode, view: self.loadingView)
         }
     }
 }

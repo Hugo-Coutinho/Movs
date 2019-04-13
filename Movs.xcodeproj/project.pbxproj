@@ -11,7 +11,7 @@
 		633C6DF6225DAF4C006CDFF4 /* connection-error.json in Resources */ = {isa = PBXBuildFile; fileRef = 633C6DF2225DAF4C006CDFF4 /* connection-error.json */; };
 		633C6DF7225DAF4C006CDFF4 /* not-found.json in Resources */ = {isa = PBXBuildFile; fileRef = 633C6DF3225DAF4C006CDFF4 /* not-found.json */; };
 		633C6DF8225DAF4C006CDFF4 /* network_error.json in Resources */ = {isa = PBXBuildFile; fileRef = 633C6DF4225DAF4C006CDFF4 /* network_error.json */; };
-		633C6DFB225DAFDE006CDFF4 /* LottieAnimationVisibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633C6DFA225DAFDE006CDFF4 /* LottieAnimationVisibility.swift */; };
+		633C6DFB225DAFDE006CDFF4 /* LottieAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633C6DFA225DAFDE006CDFF4 /* LottieAnimation.swift */; };
 		63586CD42242F8DC00884EC8 /* TvModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63586CD32242F8DC00884EC8 /* TvModel.swift */; };
 		63586CD6224303B700884EC8 /* TvService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63586CD5224303B700884EC8 /* TvService.swift */; };
 		6359D26E22501B78004CCA3E /* TvShowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6359D26C22501B78004CCA3E /* TvShowCell.swift */; };
@@ -68,7 +68,7 @@
 		633C6DF2225DAF4C006CDFF4 /* connection-error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "connection-error.json"; sourceTree = "<group>"; };
 		633C6DF3225DAF4C006CDFF4 /* not-found.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "not-found.json"; sourceTree = "<group>"; };
 		633C6DF4225DAF4C006CDFF4 /* network_error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = network_error.json; sourceTree = "<group>"; };
-		633C6DFA225DAFDE006CDFF4 /* LottieAnimationVisibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimationVisibility.swift; sourceTree = "<group>"; };
+		633C6DFA225DAFDE006CDFF4 /* LottieAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimation.swift; sourceTree = "<group>"; };
 		63586CD32242F8DC00884EC8 /* TvModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvModel.swift; sourceTree = "<group>"; };
 		63586CD5224303B700884EC8 /* TvService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvService.swift; sourceTree = "<group>"; };
 		6359D26C22501B78004CCA3E /* TvShowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowCell.swift; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 		633C6DEF225DAF4C006CDFF4 /* LottieDemo */ = {
 			isa = PBXGroup;
 			children = (
-				633C6DF9225DAFC7006CDFF4 /* LottieAnimationVisibility */,
+				633C6DF9225DAFC7006CDFF4 /* LottieAnimation */,
 				633C6DF0225DAF4C006CDFF4 /* files */,
 			);
 			path = LottieDemo;
@@ -165,12 +165,12 @@
 			path = files;
 			sourceTree = "<group>";
 		};
-		633C6DF9225DAFC7006CDFF4 /* LottieAnimationVisibility */ = {
+		633C6DF9225DAFC7006CDFF4 /* LottieAnimation */ = {
 			isa = PBXGroup;
 			children = (
-				633C6DFA225DAFDE006CDFF4 /* LottieAnimationVisibility.swift */,
+				633C6DFA225DAFDE006CDFF4 /* LottieAnimation.swift */,
 			);
-			path = LottieAnimationVisibility;
+			path = LottieAnimation;
 			sourceTree = "<group>";
 		};
 		6359D27422524F63004CCA3E /* Router */ = {
@@ -634,7 +634,7 @@
 				6385B780225857F000A72602 /* Error.swift in Sources */,
 				6385B77C2258576F00A72602 /* Reachability.swift in Sources */,
 				6385B77D2258576F00A72602 /* CheckInternetConnection.swift in Sources */,
-				633C6DFB225DAFDE006CDFF4 /* LottieAnimationVisibility.swift in Sources */,
+				633C6DFB225DAFDE006CDFF4 /* LottieAnimation.swift in Sources */,
 				6359D27322524F2D004CCA3E /* GenreRouter.swift in Sources */,
 				6359D2712250FB11004CCA3E /* TvViewData.swift in Sources */,
 				636C5DBA225D37580015CE20 /* MainCoreData.swift in Sources */,

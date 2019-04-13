@@ -72,7 +72,7 @@ extension FavoriteTVShowViewController: UITableViewDelegate {
 // MARK: - NAVBAR HELPER
 extension FavoriteTVShowViewController {
     private func setupNavBar() {
-        self.navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         setupSearchBar()
     }
     
@@ -80,7 +80,7 @@ extension FavoriteTVShowViewController {
         let searchController = UISearchController(searchResultsController: nil)
         navigationItem.searchController = searchController
         navigationItem.searchController?.searchBar.delegate = self
-        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.hidesSearchBarWhenScrolling = true
         self.definesPresentationContext = true
     }
 }
@@ -102,7 +102,7 @@ extension FavoriteTVShowViewController: UISearchBarDelegate {
 }
 
 // MARK: - VIEWMODEL DELEGATE
-extension FavoriteTVShowViewController: FavoriteViewModelDelegate {
+extension FavoriteTVShowViewController: FavoriteViewModelDelegate, LottieAnimationVisibility {
     func FavoriteTvVisibility() {
         UIView.animate(withDuration: 0.2) {
             self.animationView.isHidden = true
@@ -112,11 +112,10 @@ extension FavoriteTVShowViewController: FavoriteViewModelDelegate {
     }
     
     func setupAnimationVisibility(animationMode: String, message: String) {
-        let animation = LottieAnimationVisibility()
         UIView.animate(withDuration: 0.2) {
             self.tableView.isHidden = true
             self.labelAnimationMessage.text = message
-            animation.setupAnimation(animationMode: animationMode, view: self.animationView)
+            self.setupAnimation(animationMode: animationMode, view: self.animationView)
         }
     }
 }
