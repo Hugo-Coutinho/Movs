@@ -19,19 +19,17 @@ final class FavoriteViewModel {
     
     var favoriteList = BehaviorRelay(value: TvViewDataModel())
     var db: FavoriteManager = FavoriteManager()
-    private var delegate: FavoriteViewModelDelegate?
+    private var delegate: FavoriteViewModelDelegate!
     let bag = DisposeBag()
     
-    func attach(view: FavoriteViewModelDelegate) {
-        self.delegate = view
-    }
     
-    init() {
+    init(view: FavoriteViewModelDelegate) {
+        self.delegate = view
         let amount = db.findAll().count
         if amount > 0 {
             self.delegate?.FavoriteTvVisibility()
         } else {
-            self.delegate?.setupAnimationVisibility(animationMode: Constants.LottieAnimation.notFound, message: "favorites not found it")
+            self.delegate?.setupAnimationVisibility(animationMode: Constants.LottieAnimation.empty, message: Constants.LottieAnimation.Message.emptyMessage)
         }
     }
     

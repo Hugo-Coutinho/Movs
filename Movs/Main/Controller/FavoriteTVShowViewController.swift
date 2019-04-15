@@ -22,15 +22,13 @@ class FavoriteTVShowViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        vm = FavoriteViewModel()
+        vm = FavoriteViewModel(view: self)
         configureTableViewDelegate()
         configure()
         setupNavBar()
-        self.FavoriteTvVisibility()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.animationContainer.isHidden = true
         self.vm.fetchFavorites()
     }
 }
@@ -105,7 +103,7 @@ extension FavoriteTVShowViewController: UISearchBarDelegate {
 extension FavoriteTVShowViewController: FavoriteViewModelDelegate, LottieAnimationVisibility {
     func FavoriteTvVisibility() {
         UIView.animate(withDuration: 0.2) {
-            self.animationView.isHidden = true
+            self.animationContainer.isHidden = true
             self.tableView.isHidden = false
             self.animationView.pause()
         }
@@ -114,6 +112,7 @@ extension FavoriteTVShowViewController: FavoriteViewModelDelegate, LottieAnimati
     func setupAnimationVisibility(animationMode: String, message: String) {
         UIView.animate(withDuration: 0.2) {
             self.tableView.isHidden = true
+            self.animationContainer.isHidden = false
             self.labelAnimationMessage.text = message
             self.setupAnimation(animationMode: animationMode, view: self.animationView)
         }

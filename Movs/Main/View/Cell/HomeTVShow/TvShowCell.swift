@@ -26,6 +26,11 @@ class TvShowCell: UICollectionViewCell {
         db = FavoriteManager()
     }
     
+    override func prepareForReuse() {
+        self.labelShowName.text = ""
+        self.imageShow.image = nil
+        self.buttonFavorite.setImage(Image(named: Constants.viewImage.notFavorite), for: .normal)
+    }
     
     @IBAction func selectFavorite(_ sender: Any) {
         guard let isFavorite = self.viewData?.isFavorite else { return }

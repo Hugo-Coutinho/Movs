@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6321B8F62263E40400628A42 /* empty.json in Resources */ = {isa = PBXBuildFile; fileRef = 6321B8F52263E40300628A42 /* empty.json */; };
 		633C6DF5225DAF4C006CDFF4 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 633C6DF1225DAF4C006CDFF4 /* loading.json */; };
 		633C6DF6225DAF4C006CDFF4 /* connection-error.json in Resources */ = {isa = PBXBuildFile; fileRef = 633C6DF2225DAF4C006CDFF4 /* connection-error.json */; };
 		633C6DF7225DAF4C006CDFF4 /* not-found.json in Resources */ = {isa = PBXBuildFile; fileRef = 633C6DF3225DAF4C006CDFF4 /* not-found.json */; };
@@ -64,6 +65,7 @@
 
 /* Begin PBXFileReference section */
 		0307B32735E6256514DAFC70 /* Pods-Movs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Movs/Pods-Movs.debug.xcconfig"; sourceTree = "<group>"; };
+		6321B8F52263E40300628A42 /* empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = empty.json; path = ../../../../../../../Downloads/empty.json; sourceTree = "<group>"; };
 		633C6DF1225DAF4C006CDFF4 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		633C6DF2225DAF4C006CDFF4 /* connection-error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "connection-error.json"; sourceTree = "<group>"; };
 		633C6DF3225DAF4C006CDFF4 /* not-found.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "not-found.json"; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 		633C6DF0225DAF4C006CDFF4 /* files */ = {
 			isa = PBXGroup;
 			children = (
+				6321B8F52263E40300628A42 /* empty.json */,
 				633C6DF1225DAF4C006CDFF4 /* loading.json */,
 				633C6DF2225DAF4C006CDFF4 /* connection-error.json */,
 				633C6DF3225DAF4C006CDFF4 /* not-found.json */,
@@ -534,6 +537,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				633C6DF7225DAF4C006CDFF4 /* not-found.json in Resources */,
+				6321B8F62263E40400628A42 /* empty.json in Resources */,
 				638C9AE7223AECE0006D5D9C /* LaunchScreen.storyboard in Resources */,
 				636C5DC5225D5DC40015CE20 /* FavoriteCell.xib in Resources */,
 				633C6DF5225DAF4C006CDFF4 /* loading.json in Resources */,
