@@ -15,6 +15,7 @@ enum Constants {
     enum Router {
         static let tvBaseURL: String = "https://api.themoviedb.org/3/tv/"
         static let genreBaseUrl: String = "https://api.themoviedb.org/3/genre/tv/"
+        static let ImageBaseUrl: String = "https://image.tmdb.org/t/p/w500"
         static let getPopularPath: String = "popular"
         static let getGenrePath: String = "list"
         static let api_key: String = "api_key"

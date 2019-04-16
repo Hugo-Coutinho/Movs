@@ -33,8 +33,8 @@ extension FavoriteManager {
     }
     
     func delete(element: TvViewDataElement) {
-        if let db = self.getFavorite(titleTvShow: element.titleTvShow) {
-            self.context.delete(db)
+        if case let db as NSManagedObject = self.getFavorite(titleTvShow: element.titleTvShow) {
+             self.context.delete(db)
             do {
                 try self.saveDatabase()
             } catch {
@@ -105,6 +105,7 @@ extension FavoriteManager {
         fetchRequest.sortDescriptors = [self.sortDescriptor]
         do {
             let result = try self.context.fetch(self.fetchRequest)
+            fetchRequest = Favorite.fetchRequest()
             if let db = result.first{
                 return db
             }

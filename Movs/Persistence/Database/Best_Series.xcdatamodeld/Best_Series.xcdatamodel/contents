@@ -6,7 +6,7 @@
         <attribute name="titleTvShow" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tvDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="urlImage" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="genres" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FavoriteGenre" syncable="YES"/>
+        <relationship name="genres" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="FavoriteGenre" syncable="YES"/>
     </entity>
     <entity name="FavoriteGenre" representedClassName="FavoriteGenre" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>

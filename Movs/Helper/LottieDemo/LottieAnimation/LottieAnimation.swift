@@ -8,17 +8,11 @@
 
 import Foundation
 import UIKit
-import Kingfisher
 import Lottie
 
 protocol LottieAnimationVisibility {
     func setupAnimation(animationMode: String, view: LOTAnimationView)
 }
-
-protocol LottieAnimationImageManager {
-    func downloadImage(_ url: String, _ name: String, _ imageView: UIImageView)
-}
-
 
 extension LottieAnimationVisibility {
     
@@ -29,27 +23,4 @@ extension LottieAnimationVisibility {
         view.loopAnimation = true
     }
     
-}
-
-extension LottieAnimationImageManager {
-    func downloadImage(_ url: String, _ name: String, _ imageView: UIImageView) {
-        if let url:URL = URL(string: url) {
-            let resource = ImageResource(downloadURL: url, cacheKey: name)
-            imageView.kf.setImage(with: resource, options: nil, completionHandler: { (image, _, _, _) in
-                if let imageResult = image {
-                    imageView.image = imageResult
-                }else {
-                    print("error")
-                    imageView.image = self.getImageDefault()
-                }
-            })
-        }
-    }
-    
-    private func getImageDefault() -> UIImage {
-        if let image = UIImage(named: Constants.viewImage.defaultImage) {
-            return image
-        }
-        return UIImage()
-    }
 }

@@ -31,7 +31,7 @@ class TvViewDataElement {
         return TvViewDataElement(titleTvShow: element.originalName,
                                  releaseDate: element.firstAirDate,
                                  description: element.overview,
-                                 urlImage: "https://image.tmdb.org/t/p/w500\(element.posterPath)",
+                                 urlImage: "\(Constants.Router.ImageBaseUrl)\(element.posterPath)",
             isFavorite: false,
             genres: [String]())
     }

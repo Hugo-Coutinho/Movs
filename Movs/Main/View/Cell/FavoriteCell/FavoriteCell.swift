@@ -40,7 +40,7 @@ class FavoriteCell: UITableViewCell {
     
 }
 
-extension FavoriteCell: LottieAnimationImageManager {
+extension FavoriteCell: ImageHelper {
 
     private func imageManager(_ url: String, _ name: String, _ imageView: UIImageView) {
         self.downloadImage(url, name, imageView)

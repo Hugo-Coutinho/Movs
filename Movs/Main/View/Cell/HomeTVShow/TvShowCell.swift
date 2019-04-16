@@ -49,7 +49,7 @@ class TvShowCell: UICollectionViewCell {
 }
 
 
-extension TvShowCell: LottieAnimationImageManager {
+extension TvShowCell: ImageHelper {
     private func imageManager(_ url: String, _ name: String, _ imageView: UIImageView) {
         self.downloadImage(url, name, imageView)
     }

@@ -43,6 +43,7 @@
 		639E2F23223ECA9100C69E3F /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639E2F22223ECA9100C69E3F /* RxSwift.framework */; };
 		63EE3AC6223FFC4900C9D882 /* TmdbRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE3AC5223FFC4900C9D882 /* TmdbRouter.swift */; };
 		63EE3AC822400FC000C9D882 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE3AC722400FC000C9D882 /* HomeViewModel.swift */; };
+		63FDB78A2266795800B460D6 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB7892266795800B460D6 /* ImageHelper.swift */; };
 		77D8E19D9A9461868E29E03C /* Pods_Movs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC248A5B3A7F233BF8C20F29 /* Pods_Movs.framework */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +108,7 @@
 		639E2F22223ECA9100C69E3F /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = SOURCE_ROOT; };
 		63EE3AC5223FFC4900C9D882 /* TmdbRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbRouter.swift; sourceTree = "<group>"; };
 		63EE3AC722400FC000C9D882 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		63FDB7892266795800B460D6 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		AC248A5B3A7F233BF8C20F29 /* Pods_Movs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAC1FD3F99B6F179D6B9B349 /* Pods-Movs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Movs/Pods-Movs.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -341,6 +343,7 @@
 		638C9B0E223AF2D9006D5D9C /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				63FDB7882266793300B460D6 /* ImageHelper */,
 				633C6DEF225DAF4C006CDFF4 /* LottieDemo */,
 				6385B77E225857E300A72602 /* Error */,
 				6385B7792258576E00A72602 /* CheckInternet */,
@@ -419,6 +422,14 @@
 				6359D26D22501B78004CCA3E /* TvShowCell.xib */,
 			);
 			path = HomeTVShow;
+			sourceTree = "<group>";
+		};
+		63FDB7882266793300B460D6 /* ImageHelper */ = {
+			isa = PBXGroup;
+			children = (
+				63FDB7892266795800B460D6 /* ImageHelper.swift */,
+			);
+			path = ImageHelper;
 			sourceTree = "<group>";
 		};
 		D9185FB532F059B5C3849C64 /* Pods */ = {
@@ -641,6 +652,7 @@
 				633C6DFB225DAFDE006CDFF4 /* LottieAnimation.swift in Sources */,
 				6359D27322524F2D004CCA3E /* GenreRouter.swift in Sources */,
 				6359D2712250FB11004CCA3E /* TvViewData.swift in Sources */,
+				63FDB78A2266795800B460D6 /* ImageHelper.swift in Sources */,
 				636C5DBA225D37580015CE20 /* MainCoreData.swift in Sources */,
 				636C5DC7225D73670015CE20 /* FavoriteViewModel.swift in Sources */,
 				638C9B16223AFA34006D5D9C /* HomeTVShowViewController.swift in Sources */,

@@ -36,6 +36,9 @@ final class FavoriteViewModel {
     func fetchFavorites() {
         favoriteList.accept(db.findAll())
     }
+    
+    func removeItemAt(index: Int) {
+        db.delete(element: db.findAll()[index])
+        fetchFavorites()
+    }
 }
-
-

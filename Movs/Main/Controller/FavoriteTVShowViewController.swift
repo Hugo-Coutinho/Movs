@@ -45,6 +45,12 @@ extension FavoriteTVShowViewController {
             .rx
             .setDelegate(self)
             .disposed(by: self.vm.bag)
+        
+        tableView
+            .rx
+            .itemDeleted
+            .subscribe(onNext: { self.vm.removeItemAt(index: $0.row) })
+            .disposed(by: self.vm.bag)
     }
     
     private func  bindCellItems() {
