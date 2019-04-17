@@ -25,12 +25,7 @@ final class FavoriteViewModel {
     
     init(view: FavoriteViewModelDelegate) {
         self.delegate = view
-        let amount = db.findAll().count
-        if amount > 0 {
-            self.delegate?.FavoriteTvVisibility()
-        } else {
-            self.delegate?.setupAnimationVisibility(animationMode: Constants.LottieAnimation.empty, message: Constants.LottieAnimation.Message.emptyMessage)
-        }
+        validateAnimation()
     }
     
     func fetchFavorites() {
@@ -40,5 +35,14 @@ final class FavoriteViewModel {
     func removeItemAt(index: Int) {
         db.delete(element: db.findAll()[index])
         fetchFavorites()
+    }
+    
+    func validateAnimation() {
+        let amount = db.findAll().count
+        if amount > 0 {
+            self.delegate?.FavoriteTvVisibility()
+        } else {
+            self.delegate?.setupAnimationVisibility(animationMode: Constants.LottieAnimation.empty, message: Constants.LottieAnimation.Message.emptyMessage)
+        }
     }
 }

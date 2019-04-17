@@ -19,6 +19,7 @@ final class HomeViewModel {
     
     var items = BehaviorRelay(value: TvViewDataModel())
     var allItems = TvViewDataModel()
+    private var db: FavoriteManager!
     private let tvService = TvService()
     private let genresService = GenreService()
     private var delegate: HomeViewModelDelegate?
@@ -27,6 +28,7 @@ final class HomeViewModel {
     
     init(delegate: HomeViewModelDelegate) {
         self.delegate = delegate
+        self.db = FavoriteManager()
         
         do {
             
@@ -38,6 +40,17 @@ final class HomeViewModel {
         } catch {
             self.delegate?.setupAnimationVisibility(animationMode: Constants.LottieAnimation.offline, message: Constants.LottieAnimation.Message.offlineMessage)
         }
+    }
+    
+    func fetchFavoriteShows() {
+        self.db.findAll().forEach { (currentFavorite) in
+            self.allItems.forEach({ (element) in
+                if currentFavorite.titleTvShow == element.titleTvShow {
+                    element.isFavorite = currentFavorite.isFavorite
+                }
+            })
+        }
+        self.items.accept(self.allItems)
     }
 }
 
@@ -63,7 +76,7 @@ extension HomeViewModel {
             case .success(let genresModel):
                 let tvShows = Genre.setGenresForEachTvShows(tvShows: tvShowModel, genres: genresModel, genreIDS: genresIDS)
                 self.allItems = tvShows
-                self.items.accept(tvShows)
+                self.fetchFavoriteShows()
             case .error(let error):
                 print(error)
             }

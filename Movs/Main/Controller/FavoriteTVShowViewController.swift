@@ -29,6 +29,7 @@ class FavoriteTVShowViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.vm.validateAnimation()
         self.vm.fetchFavorites()
     }
 }
@@ -93,11 +94,20 @@ extension FavoriteTVShowViewController {
 extension FavoriteTVShowViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        FavoriteTvVisibility()
         if searchText.isEmpty {
             self.vm.fetchFavorites()
         } else {
             self.vm.favoriteList.accept(self.vm.db.findAll().filter({ $0.titleTvShow.lowercased().contains(searchText.lowercased()) }))
+            let filteredItems = self.vm.db.findAll().filter({ $0.titleTvShow.lowercased().contains(searchText.lowercased()) })
+            if filteredItems.count == 0 {
+                setupAnimationVisibility(animationMode: Constants.LottieAnimation.notFound, message: Constants.LottieAnimation.Message.notFoundMessage)
+            }
         }
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        FavoriteTvVisibility()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

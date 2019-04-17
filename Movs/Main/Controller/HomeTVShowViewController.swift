@@ -30,6 +30,10 @@ final class HomeTVShowViewController: UIViewController {
         configure()
         setupNavBar()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.vm.fetchFavoriteShows()
+    }
 }
 
 // MARK: - BIND RX COLLECTION VIEW
