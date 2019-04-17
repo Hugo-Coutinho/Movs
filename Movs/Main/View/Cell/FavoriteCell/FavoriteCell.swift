@@ -33,7 +33,7 @@ class FavoriteCell: UITableViewCell {
     func prepare(element: TvViewDataElement) {
         self.viewData = element
         self.labelShowTitle.text = element.titleTvShow
-        self.labelShowYear.text = element.releaseDate
+        self.labelShowYear.text = element.releaseDate.dateFormated()
         self.labelShowDescription.text = element.description
         self.imageManager(element.urlImage, element.titleTvShow, self.imageViewShow)
     }

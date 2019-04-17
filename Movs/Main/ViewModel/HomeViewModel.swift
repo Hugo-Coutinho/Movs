@@ -79,6 +79,7 @@ extension HomeViewModel {
                 self.fetchFavoriteShows()
             case .error(let error):
                 print(error)
+                self.delegate?.setupAnimationVisibility(animationMode: Constants.LottieAnimation.error, message: Constants.LottieAnimation.Message.errorMessage)
             }
             }.disposed(by: self.bag)
     }

@@ -53,9 +53,7 @@ extension HomeTVShowViewController {
     private func  bindCellItems() {
         vm.items
             .bind(to: collectionView.rx.items(cellIdentifier: Constants.cellIdentifier.tvShowCell, cellType: TvShowCell.self)) { _, element, cell in
-                if cell.labelShowName != nil {
                     cell.prepare(element: element)
-                }
             }
             .disposed(by: self.vm.bag)
     }
