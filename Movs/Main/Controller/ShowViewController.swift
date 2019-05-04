@@ -10,6 +10,7 @@ import UIKit
 
 class ShowViewController: UIViewController {
     
+    // MARK: - OUTLETS
     @IBOutlet weak var imageShow: UIImageView!
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var favoriteImage: UIImageView!
@@ -17,6 +18,7 @@ class ShowViewController: UIViewController {
     @IBOutlet weak var labelGenre: UILabel!
     @IBOutlet weak var labelSinopse: UILabel!
     
+    // MARK: - PROPERTYS
     var element: TvViewDataElement?
     
     override func viewDidLoad() {
@@ -24,9 +26,8 @@ class ShowViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if self.element != nil {
+        self.navigationController?.navigationBar.prefersLargeTitles = false
          setupDetail()
-        }
     }
 }
 

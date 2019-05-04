@@ -32,6 +32,13 @@ class FavoriteTVShowViewController: UIViewController {
         self.vm.validateAnimation()
         self.vm.fetchFavorites()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ShowViewController,
+            let currentElement = sender as? TvViewDataElement {
+            vc.element = currentElement
+        }
+    }
 }
 
 // MARK: - BIND TX TABLEVIEW
@@ -52,6 +59,13 @@ extension FavoriteTVShowViewController {
             .itemDeleted
             .subscribe(onNext: { self.vm.removeItemAt(index: $0.row) })
             .disposed(by: self.vm.bag)
+        
+        tableView
+            .rx
+            .itemSelected
+            .subscribe(onNext: {
+                self.performSegue(withIdentifier: Constants.viewControllerIdentifier.showDetails, sender: self.vm.db.findAll()[$0.row])
+            }).disposed(by: self.vm.bag)
     }
     
     private func  bindCellItems() {
@@ -78,6 +92,7 @@ extension FavoriteTVShowViewController: UITableViewDelegate {
 extension FavoriteTVShowViewController {
     private func setupNavBar() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
         setupSearchBar()
     }
     

@@ -61,7 +61,7 @@ extension HomeTVShowViewController {
         .rx
         .itemSelected
             .subscribe(onNext:{ indexPath in
-                self.performSegue(withIdentifier: "detail", sender: self.vm.allItems[indexPath.row])
+                self.performSegue(withIdentifier: Constants.viewControllerIdentifier.showDetails, sender: self.vm.allItems[indexPath.row])
             }).disposed(by: self.vm.bag)
     }
     
