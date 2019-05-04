@@ -102,6 +102,7 @@ extension HomeTVShowViewController: HomeViewModelDelegate, LottieAnimationVisibi
             self.loadingView.isHidden = true
             self.collectionView.isHidden = false
             self.loadingView.pause()
+            self.navigationItem.searchController?.searchBar.isUserInteractionEnabled = true
         }
     }
     
@@ -110,6 +111,7 @@ extension HomeTVShowViewController: HomeViewModelDelegate, LottieAnimationVisibi
             self.collectionView.isHidden = true
             self.labelLoadingMessage.text = message
             self.setupAnimation(animationMode: animationMode, view: self.loadingView)
+            self.navigationItem.searchController?.searchBar.isUserInteractionEnabled = false
         }
     }
 }

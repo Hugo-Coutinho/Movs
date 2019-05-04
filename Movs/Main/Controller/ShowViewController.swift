@@ -46,7 +46,7 @@ extension ShowViewController: ImageHelper {
         let element = self.element!
         
         self.labelName.text = element.titleTvShow
-        self.labelYear.text = element.releaseDate
+        self.labelYear.text = element.releaseDate.dateFormated()
         self.labelSinopse.text = element.description
         self.labelGenre.text = element.genres?.joined(separator: ", ")
         downloadImage(element.urlImage, element.titleTvShow, self.imageShow)
