@@ -93,6 +93,17 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3oe-4m-L12">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7eQ-HF-6qx">
+                                        <rect key="frame" x="321" y="167" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="ep3-zj-UFe"/>
+                                            <constraint firstAttribute="height" constant="24" id="uZy-j0-Rft"/>
+                                        </constraints>
+                                        <state key="normal" image="favorite_full_icon"/>
+                                        <connections>
+                                            <action selector="favoriteClicked:" destination="ZVS-87-xZw" eventType="touchUpInside" id="aPd-br-bUf"/>
+                                        </connections>
+                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="P9i-hC-MOe">
                                         <rect key="frame" x="12" y="8" width="351" height="128"/>
                                         <constraints>
@@ -109,13 +120,6 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Mz-u7-bto">
-                                        <rect key="frame" x="321" y="167" width="24" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="24" id="1cp-9i-Tas"/>
-                                            <constraint firstAttribute="height" constant="24" id="OOl-r0-1Ei"/>
-                                        </constraints>
-                                    </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pm1-T6-Mrq">
                                         <rect key="frame" x="27" y="194" width="318" height="1"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -178,27 +182,26 @@
                                     <constraint firstItem="Ihe-UI-nYq" firstAttribute="top" secondItem="0FQ-vD-JBF" secondAttribute="bottom" constant="25" id="9Cd-QK-zZb"/>
                                     <constraint firstItem="0FQ-vD-JBF" firstAttribute="top" secondItem="qXh-jQ-R4x" secondAttribute="bottom" constant="3" id="Bg5-yb-eXx"/>
                                     <constraint firstItem="0FQ-vD-JBF" firstAttribute="trailing" secondItem="gVD-fI-mn9" secondAttribute="trailing" id="C8K-ZY-lZe"/>
+                                    <constraint firstAttribute="trailing" secondItem="7eQ-HF-6qx" secondAttribute="trailing" constant="30" id="CvH-N3-6IJ"/>
                                     <constraint firstItem="pm1-T6-Mrq" firstAttribute="top" secondItem="ovg-bF-0sa" secondAttribute="bottom" constant="3" id="D2Y-UX-cUa"/>
                                     <constraint firstItem="pm1-T6-Mrq" firstAttribute="leading" secondItem="ovg-bF-0sa" secondAttribute="leading" id="EbR-8k-bRb"/>
                                     <constraint firstItem="P9i-hC-MOe" firstAttribute="top" secondItem="3oe-4m-L12" secondAttribute="topMargin" id="H3d-2M-UhM"/>
-                                    <constraint firstItem="7Mz-u7-bto" firstAttribute="top" secondItem="P9i-hC-MOe" secondAttribute="bottom" constant="31" id="IEl-Sm-yA7"/>
                                     <constraint firstItem="qXh-jQ-R4x" firstAttribute="leading" secondItem="0FQ-vD-JBF" secondAttribute="leading" id="Lie-X5-aOh"/>
                                     <constraint firstAttribute="trailing" secondItem="P9i-hC-MOe" secondAttribute="trailing" constant="12" id="NXq-Cy-p0P"/>
-                                    <constraint firstItem="7Mz-u7-bto" firstAttribute="leading" secondItem="ovg-bF-0sa" secondAttribute="trailing" constant="14" id="Qua-cQ-Sot"/>
-                                    <constraint firstItem="7Mz-u7-bto" firstAttribute="bottom" secondItem="ovg-bF-0sa" secondAttribute="bottom" id="Sgf-Ga-T3K"/>
+                                    <constraint firstItem="7eQ-HF-6qx" firstAttribute="top" secondItem="P9i-hC-MOe" secondAttribute="bottom" constant="31" id="Rsd-u0-0cn"/>
                                     <constraint firstAttribute="bottom" secondItem="Ihe-UI-nYq" secondAttribute="bottom" constant="218" id="Wan-cq-IRB"/>
                                     <constraint firstItem="qXh-jQ-R4x" firstAttribute="top" secondItem="gVD-fI-mn9" secondAttribute="bottom" constant="23" id="Xu4-uy-9S2"/>
                                     <constraint firstItem="lae-xZ-Eik" firstAttribute="leading" secondItem="gVD-fI-mn9" secondAttribute="leading" id="Zhb-Yn-xa3"/>
+                                    <constraint firstItem="pm1-T6-Mrq" firstAttribute="top" secondItem="7eQ-HF-6qx" secondAttribute="bottom" constant="3" id="abr-nh-f1W"/>
                                     <constraint firstItem="P9i-hC-MOe" firstAttribute="leading" secondItem="3oe-4m-L12" secondAttribute="leading" constant="12" id="dRA-KC-qbf"/>
                                     <constraint firstItem="P9i-hC-MOe" firstAttribute="centerX" secondItem="3oe-4m-L12" secondAttribute="centerX" id="dlJ-hJ-QIi"/>
                                     <constraint firstItem="gVD-fI-mn9" firstAttribute="trailing" secondItem="pm1-T6-Mrq" secondAttribute="trailing" id="dvv-2m-WTI"/>
                                     <constraint firstAttribute="trailing" secondItem="qXh-jQ-R4x" secondAttribute="trailing" constant="30" id="fcD-QU-daf"/>
-                                    <constraint firstAttribute="trailing" secondItem="7Mz-u7-bto" secondAttribute="trailing" constant="30" id="ffg-Hh-QtD"/>
                                     <constraint firstAttribute="trailing" secondItem="Ihe-UI-nYq" secondAttribute="trailing" constant="30" id="iOS-Nj-efd"/>
                                     <constraint firstItem="Ihe-UI-nYq" firstAttribute="trailing" secondItem="0FQ-vD-JBF" secondAttribute="trailing" id="pAo-Np-nPM"/>
+                                    <constraint firstItem="7eQ-HF-6qx" firstAttribute="leading" secondItem="ovg-bF-0sa" secondAttribute="trailing" constant="14" id="qeJ-zt-2oQ"/>
                                     <constraint firstItem="ovg-bF-0sa" firstAttribute="top" secondItem="P9i-hC-MOe" secondAttribute="bottom" constant="34" id="rUW-TJ-2CS"/>
                                     <constraint firstItem="ovg-bF-0sa" firstAttribute="leading" secondItem="3oe-4m-L12" secondAttribute="leading" constant="27" id="rtm-jm-Cll"/>
-                                    <constraint firstItem="pm1-T6-Mrq" firstAttribute="trailing" secondItem="7Mz-u7-bto" secondAttribute="trailing" id="sZT-2d-dsu"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -214,7 +217,7 @@
                     <navigationItem key="navigationItem" title="Show" leftItemsSupplementBackButton="YES" id="9vt-I2-vp8"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
-                        <outlet property="favoriteImage" destination="7Mz-u7-bto" id="As9-lE-yJF"/>
+                        <outlet property="favoriteButton" destination="7eQ-HF-6qx" id="qTx-vC-zSb"/>
                         <outlet property="imageShow" destination="P9i-hC-MOe" id="VVE-QI-Bu6"/>
                         <outlet property="labelGenre" destination="qXh-jQ-R4x" id="vDC-Nc-GJc"/>
                         <outlet property="labelName" destination="ovg-bF-0sa" id="ovW-GM-bWe"/>
@@ -353,6 +356,7 @@
     <resources>
         <image name="Splash" width="375" height="667"/>
         <image name="favorite_empty_icon" width="22" height="21"/>
+        <image name="favorite_full_icon" width="18" height="16"/>
         <image name="list_icon" width="18" height="10"/>
     </resources>
     <inferredMetricsTieBreakers>
