@@ -10,13 +10,20 @@ import XCTest
 @testable import Movs
 
 class MovsTests: XCTestCase {
-
+    
+    var favHelper: FavoriteHelper!
+    var db: FavoriteManager!
+    
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+         favHelper = FavoriteHelper()
+         db = FavoriteManager()
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        self.db = nil
+        self.favHelper = nil
     }
 
     func testExample() {
@@ -30,5 +37,26 @@ class MovsTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    func testFavoriteHelper() {
+        
+        let element = TvViewDataElement(titleTvShow: "MR Robot", releaseDate: "2015/10/04", description: "the best series ever", urlImage: "url..", isFavorite: false, genres: ["hacker","drama"])
+        let favButton = UIButton()
+        
+        db.deleteAll()
+        
+        favHelper.validation(show: element, isFavorite: false, isFromDatabase: false, button: favButton)
+        XCTAssertTrue(db.getCurrentFavorite(title: element.titleTvShow) != nil)
+        
+        favHelper.validation(show: element, isFavorite: true, isFromDatabase: false, button: favButton)
+        XCTAssertTrue(db.getCurrentFavorite(title: element.titleTvShow) == nil)
+    }
 
+    func testDateFormated() {
+        let date: String = "2015-10-04"
+        
+        let formatedDate = date.dateFormated()
+        
+        XCTAssertTrue(formatedDate.elementsEqual("10/04/2015") , "date is not formated as well")
+    }
 }

@@ -54,6 +54,17 @@ extension FavoriteManager {
         }
         return nil
     }
+    
+    func deleteAll() {
+        do {
+            let result = try self.context.fetch(self.fetchRequest)
+            let dbAll = result as [NSManagedObject]
+            dbAll.forEach({ self.context.delete($0) })
+            try self.saveDatabase()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }
 
 // MARK: - HELPER FUNCTIONS
