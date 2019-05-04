@@ -18,6 +18,7 @@ final class HomeTVShowViewController: UIViewController {
     @IBOutlet weak var loadingView: LOTAnimationView!
     @IBOutlet weak var labelLoadingMessage: UILabel!
     
+    
     // MARK: - PROPERTIES
     private var vm: HomeViewModel!
     var tap: UITapGestureRecognizer!
@@ -34,6 +35,13 @@ final class HomeTVShowViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.vm.fetchFavoriteShows()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ShowViewController,
+            let currentElement = sender as? TvViewDataElement {
+            vc.element = currentElement
+        }
+    }
 }
 
 // MARK: - BIND RX COLLECTION VIEW
@@ -48,6 +56,13 @@ extension HomeTVShowViewController {
             .rx
             .setDelegate(self)
             .disposed(by: self.vm.bag)
+        
+        collectionView
+        .rx
+        .itemSelected
+            .subscribe(onNext:{ indexPath in
+                self.performSegue(withIdentifier: "detail", sender: self.vm.allItems[indexPath.row])
+            }).disposed(by: self.vm.bag)
     }
     
     private func  bindCellItems() {

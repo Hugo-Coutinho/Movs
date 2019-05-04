@@ -44,14 +44,8 @@ extension FavoriteManager {
     }
     
     func findAll() -> TvViewDataModel {
-        var list = TvViewDataModel()
-        if let db = getFavoriteList(),
-            db.count > 0 {
-            db.forEach {
-                list.append(parseToElement(db: $0))
-            }
-        }
-        return list
+        guard let db = getFavoriteList() else { return TvViewDataModel() }
+        return db.compactMap({ parseToElement(db: $0) })
     }
     
     func getCurrentFavorite(title: String) -> TvViewDataElement? {
@@ -74,14 +68,7 @@ extension FavoriteManager {
     }
     
     private func parseToGenre(db: Favorite) -> [String]? {
-        var list = [String]()
-        db.genres?.forEach {
-            let fav = ($0 as! FavoriteGenre)
-            if let name = fav.name {
-                list.append(name)
-            }
-        }
-        return list
+        return db.genres?.compactMap({ ($0 as! FavoriteGenre).name })
     }
     
     private func getFavoriteList() -> [Favorite]? {
@@ -93,7 +80,7 @@ extension FavoriteManager {
     }
     
     private func getFavoriteGenre(genres: [String], db: Favorite) {
-        for currentGenre in genres{
+        for currentGenre in genres {
             let genreDB = FavoriteGenre(context: self.context)
             genreDB.name = currentGenre
             db.addToGenres(genreDB)
