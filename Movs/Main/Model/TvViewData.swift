@@ -10,7 +10,7 @@ import Foundation
 
 typealias TvViewDataModel = [TvViewDataElement]
 
-class TvViewDataElement {
+ class TvViewDataElement {
     
     var titleTvShow,releaseDate,urlImage,description: String
     var isFavorite: Bool
@@ -23,8 +23,21 @@ class TvViewDataElement {
         self.description = description
         self.isFavorite = isFavorite
         if let genres = genres {
-        self.genres = genres
+            self.genres = genres
         }
+    }
+    
+    class func parseJsonObjectToElement(jsonObject: [[String: Any]]?) -> TvViewDataModel {
+        var model = TvViewDataModel()
+        jsonObject?.forEach({
+            if let name = $0["name"] as? String, let date = $0["first_air_date"] as? String,
+                let description = $0["overview"] as? String, let urlImage = $0["poster_path"] as? String {
+                
+                let element = TvViewDataElement(titleTvShow: name, releaseDate: date, description: description, urlImage: urlImage, isFavorite: false, genres: ["action","drama"])
+                model.append(element)
+            }
+        })
+        return model
     }
     
     class func newInstanceViewDataElement(element: Result) -> TvViewDataElement? {
@@ -35,5 +48,4 @@ class TvViewDataElement {
             isFavorite: false,
             genres: [String]())
     }
-    
 }

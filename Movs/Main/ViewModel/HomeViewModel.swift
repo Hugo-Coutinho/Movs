@@ -34,8 +34,8 @@ final class HomeViewModel {
             
             try CheckInternetConnection().connectionOk()
             
-        self.delegate?.setupAnimationVisibility(animationMode: Constants.LottieAnimation.loading, message: Constants.LottieAnimation.Message.loadingMessage)
-        fetchTvShows()
+            self.delegate?.setupAnimationVisibility(animationMode: Constants.LottieAnimation.loading, message: Constants.LottieAnimation.Message.loadingMessage)
+            fetchTvShowsConfigurations()
             
         } catch {
             self.delegate?.setupAnimationVisibility(animationMode: Constants.LottieAnimation.offline, message: Constants.LottieAnimation.Message.offlineMessage)
@@ -57,6 +57,22 @@ final class HomeViewModel {
 
 // MARK: - SERVICE
 extension HomeViewModel {
+    private func fetchTvShowsConfigurations() {
+        #if TESTING
+        if let models = mockService().loadFromMock(),
+            models.count > 0 {
+            self.db.deleteAll()
+            self.delegate?.setupTvShowVisibility()
+            self.allItems = models
+            self.items.accept(self.allItems)
+            return
+        }
+        self.items.accept(TvViewDataModel())
+        #elseif DEBUG
+        fetchTvShows()
+        #endif
+    }
+    
     private func fetchTvShows() {
         self.tvService.provideTVShows().subscribe {
             switch $0 {

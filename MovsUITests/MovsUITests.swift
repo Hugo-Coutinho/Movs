@@ -12,7 +12,7 @@ class MovsUITests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-
+        
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
 
@@ -25,10 +25,19 @@ class MovsUITests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testFavoriteClickedAllApplication() {
+        
+        let collectionViewsQuery = XCUIApplication().collectionViews
+        collectionViewsQuery.children(matching: .cell).element(boundBy: 0).buttons["favorite gray icon"].tap()
+        collectionViewsQuery/*@START_MENU_TOKEN@*/.buttons["favorite full icon"]/*[[".cells.buttons[\"favorite full icon\"]",".buttons[\"favorite full icon\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        let app = XCUIApplication()
+        let collectionViewsQuery2 = app.collectionViews
+        collectionViewsQuery2.children(matching: .cell).element(boundBy: 2).buttons["favorite gray icon"].tap()
+        collectionViewsQuery2/*@START_MENU_TOKEN@*/.staticTexts["The Blacklist"]/*[[".cells.staticTexts[\"The Blacklist\"]",".staticTexts[\"The Blacklist\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app/*@START_MENU_TOKEN@*/.buttons["favorite full icon"]/*[[".scrollViews.buttons[\"favorite full icon\"]",".buttons[\"favorite full icon\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.navigationBars["Show"].buttons["Tv Shows"].tap()
+        
     }
-
 }

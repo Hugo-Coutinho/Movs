@@ -112,6 +112,11 @@ extension HomeTVShowViewController: HomeViewModelDelegate, LottieAnimationVisibi
             self.labelLoadingMessage.text = message
             self.setupAnimation(animationMode: animationMode, view: self.loadingView)
             self.navigationItem.searchController?.searchBar.isUserInteractionEnabled = false
+            if animationMode.elementsEqual(Constants.LottieAnimation.loading) {
+                self.loadingView.isUserInteractionEnabled = false
+            } else {
+                self.loadingView.isUserInteractionEnabled = true
+            }
         }
     }
 }
