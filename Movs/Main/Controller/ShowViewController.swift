@@ -21,6 +21,7 @@ class ShowViewController: UIViewController {
     // MARK: - PROPERTYS
     var element: TvViewDataElement?
     private var favHelper = FavoriteHelper()
+    private var db: FavoriteManager = FavoriteManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +51,8 @@ extension ShowViewController: ImageHelper {
         self.labelSinopse.text = element.description
         self.labelGenre.text = element.genres?.joined(separator: ", ")
         downloadImage(element.urlImage, element.titleTvShow, self.imageShow)
-        if element.isFavorite {
+        if let isFavorite = self.db.getCurrentFavorite(title: element.titleTvShow)?.isFavorite,
+            isFavorite {
             self.favoriteButton.setImage(UIImage(named: Constants.viewImage.favorite), for: .normal)
         } else {
             self.favoriteButton.setImage(UIImage(named: Constants.viewImage.notFavorite), for: .normal)
