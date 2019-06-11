@@ -15,8 +15,8 @@ class TvService {
     
     private var provider = MoyaProvider<TmdbRouter>()
     
-    func provideTVShows() -> PrimitiveSequence<SingleTrait, TvModel> {
-        return self.provider.rx.request(.getPopular())
+    func provideTVShows(page: Int) -> PrimitiveSequence<SingleTrait, TvModel> {
+        return self.provider.rx.request(.getPopular(page: page))
             .filterSuccessfulStatusCodes()
             .map(TvModel.self)
     }

@@ -63,6 +63,21 @@ extension HomeTVShowViewController {
             .subscribe(onNext:{ indexPath in
                 self.performSegue(withIdentifier: Constants.viewControllerIdentifier.showDetails, sender: self.vm.allItems[indexPath.row])
             }).disposed(by: self.vm.bag)
+        
+        collectionView
+        .rx
+        .willDisplayCell
+            .subscribe(onNext: { cell, indexPath in
+                let amountShows = self.vm.allItems.count - 1
+                
+                if indexPath.row == amountShows &&
+                    !self.vm.paginationControl.isLoading &&
+                    self.vm.paginationControl.totalAmountShows != self.vm.allItems.count  {
+                    self.vm.paginationControl.page += 1
+                    self.vm.requestNewPage()
+                }
+            })
+            .disposed(by: self.vm.bag)
     }
     
     private func  bindCellItems() {

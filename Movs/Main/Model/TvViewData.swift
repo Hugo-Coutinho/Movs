@@ -41,11 +41,19 @@ typealias TvViewDataModel = [TvViewDataElement]
     }
     
     class func newInstanceViewDataElement(element: Result) -> TvViewDataElement? {
-        return TvViewDataElement(titleTvShow: element.originalName,
-                                 releaseDate: element.firstAirDate,
-                                 description: element.overview,
-                                 urlImage: "\(Constants.Router.ImageBaseUrl)\(element.posterPath)",
+        return TvViewDataElement(titleTvShow: element.originalName!,
+                                 releaseDate: element.firstAirDate!,
+                                 description: element.overview!,
+                                 urlImage: "\(Constants.Router.ImageBaseUrl)\(element.posterPath!)",
             isFavorite: false,
             genres: [String]())
+    }
+    
+    class func propertyOfShowIsValid(showJsonObject: Result) -> Bool {
+        return showJsonObject.originalName != nil &&
+        showJsonObject.firstAirDate != nil &&
+        showJsonObject.overview != nil &&
+        showJsonObject.posterPath != nil &&
+        showJsonObject.genreIDS != nil
     }
 }

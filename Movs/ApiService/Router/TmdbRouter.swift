@@ -15,7 +15,7 @@ struct TmdbAPI {
 // URL:   https://api.themoviedb.org/3/tv/popular?api_key=8294d9700f85e20265086a49235ffbed
 enum TmdbRouter: TargetType {
     
-    case getPopular()
+    case getPopular(page: Int)
     
     var baseURL: URL { return URL(string: Constants.Router.tvBaseURL)! }
     
@@ -28,7 +28,7 @@ enum TmdbRouter: TargetType {
 
     var method: Moya.Method {
         switch self {
-        case .getPopular():
+        case .getPopular(_):
             return .get
         }
     }
@@ -39,7 +39,7 @@ enum TmdbRouter: TargetType {
     
       var parameterEncoding: ParameterEncoding {
         switch self {
-        case .getPopular():
+        case .getPopular(_):
             return URLEncoding.queryString
         }
     }
@@ -48,8 +48,9 @@ enum TmdbRouter: TargetType {
     
     var task: Task {
         switch self {
-        case .getPopular():
-            return .requestParameters(parameters: [Constants.Router.api_key: TmdbAPI.token], encoding: URLEncoding.default)
+        case .getPopular(let page):
+            let parameters: [String: Any] = [Constants.Router.api_key: TmdbAPI.token, Constants.Router.page: page]
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         }
     }
     

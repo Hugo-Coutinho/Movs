@@ -19,6 +19,7 @@ final class HomeViewModel {
     
     var items = BehaviorRelay(value: TvViewDataModel())
     var allItems = TvViewDataModel()
+    var paginationControl: Pagination = Pagination(page: 1, totalAmountShows: 0, totalPages: 0, isLoading: false)
     private var db: FavoriteManager!
     private let tvService = TvService()
     private let genresService = GenreService()
@@ -52,6 +53,11 @@ final class HomeViewModel {
         }
         self.items.accept(self.allItems)
     }
+    
+    func requestNewPage() {
+        self.paginationControl.isLoading = true
+        self.fetchTvShows()
+    }
 }
 
 
@@ -74,13 +80,14 @@ extension HomeViewModel {
     }
     
     private func fetchTvShows() {
-        self.tvService.provideTVShows().subscribe {
+        self.tvService.provideTVShows(page: self.paginationControl.page).subscribe {
             switch $0 {
             case .success(let element):
-                self.acceptItems(results: element.results)
+                self.acceptItems(element: element)
                 self.delegate?.setupTvShowVisibility()
             case .error(let error):
                 print(error)
+                self.paginationControl.isLoading = false
                 self.delegate?.setupAnimationVisibility(animationMode: Constants.LottieAnimation.error, message: Constants.LottieAnimation.Message.errorMessage)
             }
             }.disposed(by: self.bag)
@@ -91,10 +98,11 @@ extension HomeViewModel {
             switch $0 {
             case .success(let genresModel):
                 let tvShows = Genre.setGenresForEachTvShows(tvShows: tvShowModel, genres: genresModel, genreIDS: genresIDS)
-                self.allItems = tvShows
+                self.allItems += tvShows
                 self.fetchFavoriteShows()
             case .error(let error):
                 print(error)
+                self.paginationControl.isLoading = false
                 self.delegate?.setupAnimationVisibility(animationMode: Constants.LottieAnimation.error, message: Constants.LottieAnimation.Message.errorMessage)
             }
             }.disposed(by: self.bag)
@@ -105,8 +113,9 @@ extension HomeViewModel {
 // MARK: - HELPER FUNCTIONS
 extension HomeViewModel {
     
-    private func acceptItems(results: [Result]) {
-        self.parseToViewData(results: results)
+    private func acceptItems(element: TvModel) {
+        self.paginationControl = Pagination(page: element.page, totalAmountShows: element.totalResults, totalPages: element.totalResults, isLoading: false)
+        self.parseToViewData(results: element.results)
     }
     
     private func parseToViewData(results: [Result]) {
@@ -114,10 +123,12 @@ extension HomeViewModel {
         var ids = [String: [Int]]()
         
         results.forEach { (result) in
-            ids[result.originalName] = [Int]()
-            ids[result.originalName]!.append(contentsOf: result.genreIDS)
             
-            if let element = TvViewDataElement.newInstanceViewDataElement(element: result) {
+            if TvViewDataElement.propertyOfShowIsValid(showJsonObject: result),
+                let element = TvViewDataElement.newInstanceViewDataElement(element: result) {
+                
+                ids[element.titleTvShow] = [Int]()
+                ids[element.titleTvShow]!.append(contentsOf: result.genreIDS!)
                 model.append(element)
             }
         }

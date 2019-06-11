@@ -19,6 +19,7 @@ enum Constants {
         static let getPopularPath: String = "popular"
         static let getGenrePath: String = "list"
         static let api_key: String = "api_key"
+        static let page: String = "page"
     }
     
     enum cellIdentifier {
