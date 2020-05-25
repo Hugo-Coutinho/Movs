@@ -16,7 +16,7 @@ class GenreService {
     private var provider = MoyaProvider<GenreRouter>()
     
     func provideGenres() -> PrimitiveSequence<SingleTrait, Genres> {
-        return self.provider.rx.request(.getGenre())
+        return self.provider.rx.request(.getGenre)
             .filterSuccessfulStatusCodes()
             .map(Genres.self)
     }

@@ -7,7 +7,7 @@ target 'Movs' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxDataSources', '~> 3.0'
-  pod 'Kingfisher'
+  pod 'Kingfisher', '~> 5.14'
   pod 'lottie-ios'
     
 end

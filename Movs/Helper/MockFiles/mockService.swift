@@ -14,7 +14,7 @@ class mockService {
         let fileUrl = Bundle.main.url(forResource: "tvShows.json", withExtension: nil)!
         let jsonData = try! Data(contentsOf: fileUrl)
         
-        if let array = try? JSONSerialization.jsonObject(with: jsonData, options: .allowFragments) as? [[String: Any]] {
+        if let array = ((try? JSONSerialization.jsonObject(with: jsonData, options: .allowFragments) as? [[String: Any]]) as [[String : Any]]??) {
             return TvViewDataElement.parseJsonObjectToElement(jsonObject: array)
         }
         return nil

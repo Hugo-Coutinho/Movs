@@ -14,20 +14,20 @@ import Moya
 
 enum GenreRouter: TargetType {
     
-    case getGenre()
+    case getGenre
     
     var baseURL: URL { return URL(string: Constants.Router.genreBaseUrl)! }
     
     var path: String {
         switch self {
-        case .getGenre():
+        case .getGenre:
             return Constants.Router.getGenrePath
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .getGenre():
+        case .getGenre:
             return .get
         }
     }
@@ -38,7 +38,7 @@ enum GenreRouter: TargetType {
     
     var parameterEncoding: ParameterEncoding {
         switch self {
-        case .getGenre():
+        case .getGenre:
             return URLEncoding.queryString
         }
     }
@@ -47,7 +47,7 @@ enum GenreRouter: TargetType {
     
     var task: Task {
         switch self {
-        case .getGenre():
+        case .getGenre:
             return .requestParameters(parameters: [Constants.Router.api_key: TmdbAPI.token], encoding: URLEncoding.default)
         }
     }
