@@ -1,4 +1,46 @@
 # Movs
+<div style="text-align: center">
+    <table>
+        <tr>
+            <td style="text-align: center">
+                    <img src="https://github.com/Hugo-Coutinho/Movs/blob/master/Movs/Helper/readmeImages/opening.gif?raw=true" width="200" height="350"/>
+                </a>
+            </td>            
+            <td style="text-align: center">
+                    <img src="https://github.com/Hugo-Coutinho/Movs/blob/master/Movs/Helper/readmeImages/home_searching.png?raw=true" width="200" height="350"/>
+                </a>
+            </td>            
+            <td style="text-align: center">
+                    <img src="https://github.com/Hugo-Coutinho/Movs/blob/master/Movs/Helper/readmeImages/show_not_find.gif?raw=true" width="200" height="350"/>
+                </a>
+            </td>            
+        </tr>
+        <tr>         
+            <td style="text-align: center">
+                    <img src="https://github.com/Hugo-Coutinho/Movs/blob/master/Movs/Helper/readmeImages/show_detail.gif?raw=true" width="200" height="350"/>
+                </a>
+            </td>            
+            <td style="text-align: center">
+                    <img src="https://github.com/Hugo-Coutinho/Movs/blob/master/Movs/Helper/readmeImages/network_failure.gif?raw=true" width="200" height="350"/>
+                </a>
+            </td>            
+                        <td style="text-align: center">
+                    <img src="https://github.com/Hugo-Coutinho/Movs/blob/master/Movs/Helper/readmeImages/favorite_empty.png?raw=true" width="200" height="350"/>
+                </a>
+            </td>            
+        </tr>
+        <tr>
+            <td style="text-align: center">
+                    <img src="https://github.com/Hugo-Coutinho/Movs/blob/master/Movs/Helper/readmeImages/favorite_navigation_bar.gif?raw=true" width="200" height="350"/>
+                </a>
+            </td>            
+            <td style="text-align: center">
+                    <img src="https://github.com/Hugo-Coutinho/Movs/blob/master/Movs/Helper/readmeImages/favorite_deleting.png?raw=true" width="200" height="350"/>
+                </a>
+            </td>            
+        </tr>
+    </table>
+</div>
 
 ## About this Project
 
