@@ -84,7 +84,7 @@
 		63EE3AC6223FFC4900C9D882 /* TmdbRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE3AC5223FFC4900C9D882 /* TmdbRouter.swift */; };
 		63EE3AC822400FC000C9D882 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE3AC722400FC000C9D882 /* HomeViewModel.swift */; };
 		63FDB78A2266795800B460D6 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB7892266795800B460D6 /* ImageHelper.swift */; };
-		77D8E19D9A9461868E29E03C /* Pods_Movs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC248A5B3A7F233BF8C20F29 /* Pods_Movs.framework */; };
+		A3937507C785D76569E6DC30 /* Pods_Movs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5872796BBB82FC9E233384AD /* Pods_Movs.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,7 +105,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0307B32735E6256514DAFC70 /* Pods-Movs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Movs/Pods-Movs.debug.xcconfig"; sourceTree = "<group>"; };
+		52CA22E03A59A20123E6E21D /* Pods-Movs.testing.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movs.testing.xcconfig"; path = "Target Support Files/Pods-Movs/Pods-Movs.testing.xcconfig"; sourceTree = "<group>"; };
+		5872796BBB82FC9E233384AD /* Pods_Movs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		631894FC22AF282400DB3FCB /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		632E849E247C414800E47875 /* tvShows.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tvShows.json; sourceTree = "<group>"; };
 		632E84A3247C4E5200E47875 /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading.png; sourceTree = "<group>"; };
@@ -166,9 +167,7 @@
 		63EE3AC5223FFC4900C9D882 /* TmdbRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbRouter.swift; sourceTree = "<group>"; };
 		63EE3AC722400FC000C9D882 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		63FDB7892266795800B460D6 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
-		9B1C0B34217B36E9F325FA35 /* Pods-Movs.testing.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movs.testing.xcconfig"; path = "Pods/Target Support Files/Pods-Movs/Pods-Movs.testing.xcconfig"; sourceTree = "<group>"; };
-		AC248A5B3A7F233BF8C20F29 /* Pods_Movs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CAC1FD3F99B6F179D6B9B349 /* Pods-Movs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Movs/Pods-Movs.release.xcconfig"; sourceTree = "<group>"; };
+		C5551A948FE04861BAEAD34A /* Pods-Movs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movs.debug.xcconfig"; path = "Target Support Files/Pods-Movs/Pods-Movs.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,7 +177,7 @@
 			files = (
 				639E2F23223ECA9100C69E3F /* RxSwift.framework in Frameworks */,
 				639E2F21223ECA2300C69E3F /* Moya.framework in Frameworks */,
-				77D8E19D9A9461868E29E03C /* Pods_Movs.framework in Frameworks */,
+				A3937507C785D76569E6DC30 /* Pods_Movs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,10 +198,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		514B420A75B92710A845B0CA /* Frameworks */ = {
+		090A5E3C47545DB9042934F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AC248A5B3A7F233BF8C20F29 /* Pods_Movs.framework */,
+				5872796BBB82FC9E233384AD /* Pods_Movs.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -355,8 +354,8 @@
 				638C9AF0223AECE1006D5D9C /* MovsTests */,
 				638C9AFB223AECE1006D5D9C /* MovsUITests */,
 				638C9AD8223AECDE006D5D9C /* Products */,
-				D9185FB532F059B5C3849C64 /* Pods */,
-				514B420A75B92710A845B0CA /* Frameworks */,
+				D09C9FDBC25F37834ED59DC6 /* Pods */,
+				090A5E3C47545DB9042934F4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -547,14 +546,14 @@
 			path = ImageHelper;
 			sourceTree = "<group>";
 		};
-		D9185FB532F059B5C3849C64 /* Pods */ = {
+		D09C9FDBC25F37834ED59DC6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0307B32735E6256514DAFC70 /* Pods-Movs.debug.xcconfig */,
-				CAC1FD3F99B6F179D6B9B349 /* Pods-Movs.release.xcconfig */,
-				9B1C0B34217B36E9F325FA35 /* Pods-Movs.testing.xcconfig */,
+				C5551A948FE04861BAEAD34A /* Pods-Movs.debug.xcconfig */,
+				52CA22E03A59A20123E6E21D /* Pods-Movs.testing.xcconfig */,
 			);
 			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -564,11 +563,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 638C9B01223AECE1006D5D9C /* Build configuration list for PBXNativeTarget "Movs" */;
 			buildPhases = (
-				B84AA6AF67363950FCCD8CF4 /* [CP] Check Pods Manifest.lock */,
+				CB0750B772B20DD75EBD852A /* [CP] Check Pods Manifest.lock */,
 				638C9AD3223AECDE006D5D9C /* Sources */,
 				638C9AD4223AECDE006D5D9C /* Frameworks */,
 				638C9AD5223AECDE006D5D9C /* Resources */,
-				13D04852F94B96F87BF5ECCA /* [CP] Embed Pods Frameworks */,
+				04CC8F7050BF8121F83E22DC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -729,7 +728,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		13D04852F94B96F87BF5ECCA /* [CP] Embed Pods Frameworks */ = {
+		04CC8F7050BF8121F83E22DC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -746,7 +745,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Movs/Pods-Movs-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B84AA6AF67363950FCCD8CF4 /* [CP] Check Pods Manifest.lock */ = {
+		CB0750B772B20DD75EBD852A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -922,7 +921,7 @@
 		};
 		638C9B02223AECE1006D5D9C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0307B32735E6256514DAFC70 /* Pods-Movs.debug.xcconfig */;
+			baseConfigurationReference = C5551A948FE04861BAEAD34A /* Pods-Movs.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1048,7 +1047,7 @@
 		};
 		63C90AEB227F8B190028A2F7 /* Testing */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9B1C0B34217B36E9F325FA35 /* Pods-Movs.testing.xcconfig */;
+			baseConfigurationReference = 52CA22E03A59A20123E6E21D /* Pods-Movs.testing.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

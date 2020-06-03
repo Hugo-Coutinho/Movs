@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 protocol FavoriteViewModelDelegate {
-    func FavoriteTvVisibility()
+    func favoriteTvVisibility()
     func setupAnimationVisibility(animationMode: String, message: String)
 }
 
@@ -40,7 +40,7 @@ final class FavoriteViewModel {
     func validateAnimation() {
         let amount = db.findAll().count
         if amount > 0 {
-            self.delegate?.FavoriteTvVisibility()
+            self.delegate?.favoriteTvVisibility()
         } else {
             self.delegate?.setupAnimationVisibility(animationMode: Constants.LottieAnimation.empty, message: Constants.LottieAnimation.Message.emptyMessage)
         }

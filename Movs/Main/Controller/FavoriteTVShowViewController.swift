@@ -19,6 +19,7 @@ class FavoriteTVShowViewController: UIViewController {
     
     // MARK: - PROPERTIES
     private var vm: FavoriteViewModel!
+    private lazy var filteredShows: TvViewDataModel = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +58,10 @@ extension FavoriteTVShowViewController {
         tableView
             .rx
             .itemDeleted
-            .subscribe(onNext: { self.vm.removeItemAt(index: $0.row) })
+            .subscribe(onNext: {
+                self.vm.removeItemAt(index: $0.row)
+                self.setupFavoriteStateVisibility()
+            })
             .disposed(by: self.vm.bag)
         
         tableView
@@ -81,14 +85,21 @@ extension FavoriteTVShowViewController {
     }
 }
 
-// MARK: - TABLEVIEW DELEGATE
+// MARK: - TABLEVIEW DELEGATE -
 extension FavoriteTVShowViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return view.frame.height/5
     }
 }
 
-// MARK: - NAVBAR HELPER
+// MARK: - TABLEVIEW UX METHODS -
+extension FavoriteTVShowViewController {
+    private func setupFavoriteStateVisibility() {
+        self.vm.db.findAll().isEmpty ? setupAnimationVisibility(animationMode: Constants.LottieAnimation.empty, message: Constants.LottieAnimation.Message.emptyMessage) : favoriteTvVisibility()
+    }
+}
+
+// MARK: - NAVBAR HELPER -
 extension FavoriteTVShowViewController {
     private func setupNavBar() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -109,30 +120,38 @@ extension FavoriteTVShowViewController {
 extension FavoriteTVShowViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        FavoriteTvVisibility()
-        if searchText.isEmpty {
-            self.vm.fetchFavorites()
-        } else {
-            self.vm.favoriteList.accept(self.vm.db.findAll().filter({ $0.titleTvShow.lowercased().contains(searchText.lowercased()) }))
-            let filteredItems = self.vm.db.findAll().filter({ $0.titleTvShow.lowercased().contains(searchText.lowercased()) })
-            if filteredItems.count == 0 {
-                setupAnimationVisibility(animationMode: Constants.LottieAnimation.notFound, message: Constants.LottieAnimation.Message.notFoundMessage)
-            }
-        }
+        guard !searchText.isEmpty else { return favoriteTvVisibility() }
+        self.filterShowbySearch(searchText: searchText)
+        self.setupNotFoundAnimationForEmptySearch()
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        FavoriteTvVisibility()
+        guard self.filteredShows.isEmpty else { return }
+        self.vm.fetchFavorites()
+        favoriteTvVisibility()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.filteredShows = []
         self.vm.fetchFavorites()
+    }
+}
+
+// MARK: - SEARCH AUX FUNCTIONS
+extension FavoriteTVShowViewController {
+    private func filterShowbySearch(searchText: String) {
+        self.filteredShows = self.vm.db.findAll().filter({ $0.titleTvShow.lowercased().contains(searchText.lowercased()) })
+        self.vm.favoriteList.accept(self.filteredShows)
+    }
+    
+    private func setupNotFoundAnimationForEmptySearch() {
+        self.filteredShows.isEmpty ? setupAnimationVisibility(animationMode: Constants.LottieAnimation.notFound, message: Constants.LottieAnimation.Message.notFoundMessage) : favoriteTvVisibility()
     }
 }
 
 // MARK: - VIEWMODEL DELEGATE
 extension FavoriteTVShowViewController: FavoriteViewModelDelegate, LottieAnimationVisibility {
-    func FavoriteTvVisibility() {
+    func favoriteTvVisibility() {
         UIView.animate(withDuration: 0.2) {
             self.animationContainer.isHidden = true
             self.tableView.isHidden = false

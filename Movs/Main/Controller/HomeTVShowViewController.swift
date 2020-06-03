@@ -20,6 +20,7 @@ final class HomeTVShowViewController: UIViewController {
     
     
     // MARK: - PROPERTIES
+    private lazy var filteredShows: TvViewDataModel = []
     private var vm: HomeViewModel!
     var tap: UITapGestureRecognizer!
     
@@ -117,21 +118,34 @@ extension HomeTVShowViewController: HomeViewModelDelegate, LottieAnimationVisibi
             self.loadingView.isHidden = true
             self.collectionView.isHidden = false
             self.loadingView.pause()
-            self.navigationItem.searchController?.searchBar.isUserInteractionEnabled = true
+            self.homeInteractionSetup(currentAnimationMode: "default")
         }
     }
     
     func setupAnimationVisibility(animationMode: String, message: String) {
-        UIView.animate(withDuration: 0.2) {
-            self.collectionView.isHidden = true
-            self.labelLoadingMessage.text = message
-            self.setupAnimation(animationMode: animationMode, view: self.loadingView)
-            self.navigationItem.searchController?.searchBar.isUserInteractionEnabled = false
-            if animationMode.elementsEqual(Constants.LottieAnimation.loading) {
-                self.loadingView.isUserInteractionEnabled = false
-            } else {
-                self.loadingView.isUserInteractionEnabled = true
-            }
+        self.collectionView.isHidden = true
+        self.labelLoadingMessage.text = message
+        self.setupAnimation(animationMode: animationMode, view: self.loadingView)
+        self.homeInteractionSetup(currentAnimationMode: animationMode)
+    }
+}
+
+// MARK: - NAVBAR HELPER
+extension HomeTVShowViewController {
+    private func homeInteractionSetup(currentAnimationMode: String) {
+        switch (currentAnimationMode) {
+        case Constants.LottieAnimation.loading:
+            self.loadingView.isUserInteractionEnabled = false
+            navigationItem.searchController?.searchBar.isUserInteractionEnabled = false
+        case Constants.LottieAnimation.offline:
+            self.loadingView.isUserInteractionEnabled = true
+            navigationItem.searchController?.searchBar.isUserInteractionEnabled = false
+        case Constants.LottieAnimation.error:
+            self.loadingView.isUserInteractionEnabled = true
+            navigationItem.searchController?.searchBar.isUserInteractionEnabled = false
+        default:
+            self.loadingView.isUserInteractionEnabled = true
+            navigationItem.searchController?.searchBar.isUserInteractionEnabled = true
         }
     }
 }
@@ -155,24 +169,36 @@ extension HomeTVShowViewController {
 extension HomeTVShowViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        setupTvShowVisibility()
-        if searchText.isEmpty {
-            self.vm.items.accept(self.vm.allItems)
-        } else {
-            let filteredItems = self.vm.allItems.filter({ $0.titleTvShow.lowercased().contains(searchText.lowercased()) })
-            self.vm.items.accept(filteredItems)
-            if filteredItems.count == 0 {
-                setupAnimationVisibility(animationMode: Constants.LottieAnimation.notFound, message: Constants.LottieAnimation.Message.notFoundMessage)
-            }
-        }
+        guard !searchText.isEmpty else { return setupTvShowVisibility() }
+        self.filterShowbySearch(searchText: searchText)
+        self.setupNotFoundAnimationForEmptySearch()
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.presentShows(searchText: searchBar.text)
         setupTvShowVisibility()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.filteredShows = []
         self.vm.items.accept(self.vm.allItems)
+    }
+}
+
+// MARK: - SEARCH AUX FUNCTIONS
+extension HomeTVShowViewController {
+    private func presentShows(searchText: String?) {
+        guard self.filteredShows.isEmpty else { return }
+        self.vm.items.accept(self.vm.allItems)
+    }
+    
+    private func filterShowbySearch(searchText: String) {
+        self.filteredShows = self.vm.allItems.filter({ $0.titleTvShow.lowercased().contains(searchText.lowercased()) })
+        self.vm.items.accept(self.filteredShows)
+    }
+    
+    private func setupNotFoundAnimationForEmptySearch() {
+        self.filteredShows.isEmpty ? setupAnimationVisibility(animationMode: Constants.LottieAnimation.notFound, message: Constants.LottieAnimation.Message.notFoundMessage) : setupTvShowVisibility()
     }
 }
 
