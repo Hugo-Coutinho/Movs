@@ -153,6 +153,7 @@ extension HomeTVShowViewController {
 // MARK: - NAVBAR HELPER
 extension HomeTVShowViewController {
     private func setupNavBar() {
+        self.navigationController?.mainNavigationBarColorConfiguration()
         self.navigationController?.navigationBar.prefersLargeTitles = false
         setupSearchBar()
     }

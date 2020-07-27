@@ -61,6 +61,8 @@
 		63D02F872267E49A00E5AAEA /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D02F862267E49A00E5AAEA /* ShowViewController.swift */; };
 		63EE3AC6223FFC4900C9D882 /* TmdbRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE3AC5223FFC4900C9D882 /* TmdbRouter.swift */; };
 		63EE3AC822400FC000C9D882 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE3AC722400FC000C9D882 /* HomeViewModel.swift */; };
+		63F0B82624CE692500C733A6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F0B82524CE692500C733A6 /* Color.swift */; };
+		63F0B82824CE694800C733A6 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F0B82724CE694800C733A6 /* NavigationController.swift */; };
 		63FDB78A2266795800B460D6 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB7892266795800B460D6 /* ImageHelper.swift */; };
 		A3937507C785D76569E6DC30 /* Pods_Movs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5872796BBB82FC9E233384AD /* Pods_Movs.framework */; };
 /* End PBXBuildFile section */
@@ -142,6 +144,8 @@
 		63D02F862267E49A00E5AAEA /* ShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewController.swift; sourceTree = "<group>"; };
 		63EE3AC5223FFC4900C9D882 /* TmdbRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbRouter.swift; sourceTree = "<group>"; };
 		63EE3AC722400FC000C9D882 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		63F0B82524CE692500C733A6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		63F0B82724CE694800C733A6 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		63FDB7892266795800B460D6 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		C5551A948FE04861BAEAD34A /* Pods-Movs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movs.debug.xcconfig"; path = "Target Support Files/Pods-Movs/Pods-Movs.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -508,6 +512,8 @@
 			isa = PBXGroup;
 			children = (
 				63D02F45226785FD00E5AAEA /* String.swift */,
+				63F0B82524CE692500C733A6 /* Color.swift */,
+				63F0B82724CE694800C733A6 /* NavigationController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -747,7 +753,9 @@
 				6359D27B22531712004CCA3E /* Constants.swift in Sources */,
 				63EE3AC822400FC000C9D882 /* HomeViewModel.swift in Sources */,
 				6359D27722525367004CCA3E /* GenreService.swift in Sources */,
+				63F0B82824CE694800C733A6 /* NavigationController.swift in Sources */,
 				63EE3AC6223FFC4900C9D882 /* TmdbRouter.swift in Sources */,
+				63F0B82624CE692500C733A6 /* Color.swift in Sources */,
 				6359D26E22501B78004CCA3E /* TvShowCell.swift in Sources */,
 				636C5DC0225D39520015CE20 /* FavoriteManager.swift in Sources */,
 				636C5DC4225D5DC40015CE20 /* FavoriteCell.swift in Sources */,
