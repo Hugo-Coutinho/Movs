@@ -102,6 +102,7 @@ extension FavoriteTVShowViewController {
 // MARK: - NAVBAR HELPER -
 extension FavoriteTVShowViewController {
     private func setupNavBar() {
+        self.navigationController?.mainNavigationBarColorConfiguration()
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
         setupSearchBar()

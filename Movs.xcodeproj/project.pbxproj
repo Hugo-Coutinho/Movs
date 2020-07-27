@@ -56,6 +56,8 @@
 		638C9B1D223AFF04006D5D9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 638C9B1C223AFF04006D5D9C /* Assets.xcassets */; };
 		639E2F21223ECA2300C69E3F /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639E2F20223ECA2300C69E3F /* Moya.framework */; };
 		639E2F23223ECA9100C69E3F /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639E2F22223ECA9100C69E3F /* RxSwift.framework */; };
+		63BE36B224CE5C94004C49CD /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE36B124CE5C94004C49CD /* Color.swift */; };
+		63BE36B424CE5D8D004C49CD /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE36B324CE5D8D004C49CD /* NavigationController.swift */; };
 		63CB07FC22AC38AD0061DDCE /* empty.json in Resources */ = {isa = PBXBuildFile; fileRef = 63CB07FB22AC38AC0061DDCE /* empty.json */; };
 		63D02F46226785FD00E5AAEA /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D02F45226785FD00E5AAEA /* String.swift */; };
 		63D02F872267E49A00E5AAEA /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D02F862267E49A00E5AAEA /* ShowViewController.swift */; };
@@ -137,6 +139,8 @@
 		638C9B1C223AFF04006D5D9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		639E2F20223ECA2300C69E3F /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = Carthage/Build/iOS/Moya.framework; sourceTree = SOURCE_ROOT; };
 		639E2F22223ECA9100C69E3F /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = SOURCE_ROOT; };
+		63BE36B124CE5C94004C49CD /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		63BE36B324CE5D8D004C49CD /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		63CB07FB22AC38AC0061DDCE /* empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = empty.json; sourceTree = "<group>"; };
 		63D02F45226785FD00E5AAEA /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		63D02F862267E49A00E5AAEA /* ShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewController.swift; sourceTree = "<group>"; };
@@ -508,6 +512,8 @@
 			isa = PBXGroup;
 			children = (
 				63D02F45226785FD00E5AAEA /* String.swift */,
+				63BE36B124CE5C94004C49CD /* Color.swift */,
+				63BE36B324CE5D8D004C49CD /* NavigationController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -747,7 +753,9 @@
 				6359D27B22531712004CCA3E /* Constants.swift in Sources */,
 				63EE3AC822400FC000C9D882 /* HomeViewModel.swift in Sources */,
 				6359D27722525367004CCA3E /* GenreService.swift in Sources */,
+				63BE36B424CE5D8D004C49CD /* NavigationController.swift in Sources */,
 				63EE3AC6223FFC4900C9D882 /* TmdbRouter.swift in Sources */,
+				63BE36B224CE5C94004C49CD /* Color.swift in Sources */,
 				6359D26E22501B78004CCA3E /* TvShowCell.swift in Sources */,
 				636C5DC0225D39520015CE20 /* FavoriteManager.swift in Sources */,
 				636C5DC4225D5DC40015CE20 /* FavoriteCell.swift in Sources */,
